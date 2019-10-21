@@ -1,0 +1,10 @@
+C:\projects\dizruptor\Dizruptor\Dizruptor\bin\Debug\Dizruptor.exe.config
+C:\projects\dizruptor\Dizruptor\Dizruptor\bin\Debug\Dizruptor.exe
+C:\projects\dizruptor\Dizruptor\Dizruptor\bin\Debug\Dizruptor.pdb
+C:\projects\dizruptor\Dizruptor\Dizruptor\obj\Debug\Dizruptor.csprojAssemblyReference.cache
+C:\projects\dizruptor\Dizruptor\Dizruptor\obj\Debug\Dizruptor.Form1.resources
+C:\projects\dizruptor\Dizruptor\Dizruptor\obj\Debug\Dizruptor.Properties.Resources.resources
+C:\projects\dizruptor\Dizruptor\Dizruptor\obj\Debug\Dizruptor.csproj.GenerateResource.cache
+C:\projects\dizruptor\Dizruptor\Dizruptor\obj\Debug\Dizruptor.csproj.CoreCompileInputs.cache
+C:\projects\dizruptor\Dizruptor\Dizruptor\obj\Debug\Dizruptor.exe
+C:\projects\dizruptor\Dizruptor\Dizruptor\obj\Debug\Dizruptor.pdb
