@@ -21,23 +21,26 @@ namespace Dizruptor
             words = new List<string>();
             foreach (var item in lines)
             {
-                var t = item.Split(' ', ',', '.', ':', '-', '!', '@', '#', ';', '*', '<', '>', '?', '|', '{', '}', '[', ']', '(', ')', '%');
+                var t = item.Split(' ', ',', '.', ':', '-', '!', '@', '#', ';', '*', '<', '>', '?', '|', '{', '}', '[', ']', '(', ')', '%', '\t', '&', '/', '«','»', '–');
+                int s = 0;
                 foreach (var w in t)
                 {
-                    words.Add(w);
+                    if (!int.TryParse(w, out s))
+                        words.Add(w);
                 }
             }
         }
 
         public Words GetStatistic()
         {
-            Words w = new Words();
+            Words w = Words.GetInstance();
+            w.allWordsDic.Clear();
             LinesToWords();
             foreach (var item in words)
             {
                 w.AddCurrentWord(item);
             }
-
+            
             return w;
         }
     }

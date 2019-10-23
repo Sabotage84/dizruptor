@@ -8,20 +8,39 @@ namespace Dizruptor
 {
     class Words
     {
-        public Dictionary<string, int> allWordsDic;
+        private static readonly Words instance = new Words();
+        public SortedDictionary<string, int> allWordsDic;
+        public SortedList<string, int> badWords= new SortedList<string, int>();
 
-        public Words()
+        Words()
         {
-            allWordsDic = new Dictionary<string, int>();
+            allWordsDic = new SortedDictionary<string, int>();
+        
         }
 
         public void AddCurrentWord(string w)
         {
-            if (allWordsDic.ContainsKey(w))
-                allWordsDic[w]++;
-            else
-                allWordsDic.Add(w, 1);
+            if (!badWords.ContainsKey(w))
+            {
+                if (allWordsDic.ContainsKey(w))
+                    allWordsDic[w]++;
+                else
+                    allWordsDic.Add(w, 1);
+            }
         }
+
+        public static Words GetInstance()
+        {
+           
+            return instance;
+        }
+
+        public void AddBadWord(string w)
+        {
+            if (!badWords.ContainsKey(w))
+                badWords.Add(w, 1);
+        }
+
 
     }
 }
