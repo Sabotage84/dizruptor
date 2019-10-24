@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Dizruptor
@@ -15,7 +16,11 @@ namespace Dizruptor
         Words()
         {
             allWordsDic = new SortedDictionary<string, int>();
-        
+            string[] Mass = File.ReadAllLines(@"simpleWords.txt");
+            foreach (var item in Mass)
+            {
+                AddBadWord(item);
+            }
         }
 
         public void AddCurrentWord(string w)
@@ -39,6 +44,16 @@ namespace Dizruptor
         {
             if (!badWords.ContainsKey(w))
                 badWords.Add(w, 1);
+        }
+
+        public void SaveBadWords()
+        {
+            string temp = "";
+            foreach (var item in badWords.Keys)
+            {
+                temp += item + Environment.NewLine;
+            }
+            File.WriteAllText(@"simpleWords.txt", temp);
         }
 
 

@@ -16,8 +16,17 @@ namespace Dizruptor
         public Form1()
         {
             InitializeComponent();
-        }
+            LoadBadWords();
 
+        }
+        void LoadBadWords()
+        {
+            foreach (var item in w.badWords.Keys)
+            {
+                badWords_lstBx.Items.Add(item);
+            }
+        }
+        
         private void start_btn_Click(object sender, EventArgs e)
         {
             allWords_lstbx.Items.Clear();
@@ -33,15 +42,14 @@ namespace Dizruptor
         private void ToBadWords_btn_Click(object sender, EventArgs e)
         {
             string temp = (w.allWordsDic.ElementAt(allWords_lstbx.Items.IndexOf(allWords_lstbx.SelectedItem)).Key);
-            //w.allWordsDic.Remove(w.allWordsDic.ElementAt(allWords_lstbx.Items.IndexOf(allWords_lstbx.SelectedItem)).Key);
-            //allWords_lstbx.Items.Clear();
-            //foreach (var item in w.allWordsDic)
-            //{
-            //    allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
-            //}
-
             badWords_lstBx.Items.Add(temp);
             w.AddBadWord(temp);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Words w = Words.GetInstance();
+            w.SaveBadWords();
         }
     }
 }
