@@ -32,6 +32,9 @@
             this.start_btn = new System.Windows.Forms.Button();
             this.ToBadWords_btn = new System.Windows.Forms.Button();
             this.badWords_lstBx = new System.Windows.Forms.ListBox();
+            this.book_fd = new System.Windows.Forms.OpenFileDialog();
+            this.findFile_btn = new System.Windows.Forms.Button();
+            this.pathToBook_txtBx = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // allWords_lstbx
@@ -71,11 +74,34 @@
             this.badWords_lstBx.Size = new System.Drawing.Size(163, 368);
             this.badWords_lstBx.TabIndex = 3;
             // 
+            // book_fd
+            // 
+            this.book_fd.FileName = "openFileDialog1";
+            // 
+            // findFile_btn
+            // 
+            this.findFile_btn.Location = new System.Drawing.Point(469, 19);
+            this.findFile_btn.Name = "findFile_btn";
+            this.findFile_btn.Size = new System.Drawing.Size(25, 20);
+            this.findFile_btn.TabIndex = 5;
+            this.findFile_btn.Text = "...";
+            this.findFile_btn.UseVisualStyleBackColor = true;
+            this.findFile_btn.Click += new System.EventHandler(this.findFile_btn_Click);
+            // 
+            // pathToBook_txtBx
+            // 
+            this.pathToBook_txtBx.Location = new System.Drawing.Point(12, 19);
+            this.pathToBook_txtBx.Name = "pathToBook_txtBx";
+            this.pathToBook_txtBx.Size = new System.Drawing.Size(451, 20);
+            this.pathToBook_txtBx.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 475);
+            this.Controls.Add(this.pathToBook_txtBx);
+            this.Controls.Add(this.findFile_btn);
             this.Controls.Add(this.badWords_lstBx);
             this.Controls.Add(this.ToBadWords_btn);
             this.Controls.Add(this.start_btn);
@@ -84,6 +110,7 @@
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -93,6 +120,9 @@
         private System.Windows.Forms.Button start_btn;
         private System.Windows.Forms.Button ToBadWords_btn;
         private System.Windows.Forms.ListBox badWords_lstBx;
+        private System.Windows.Forms.OpenFileDialog book_fd;
+        private System.Windows.Forms.Button findFile_btn;
+        private System.Windows.Forms.TextBox pathToBook_txtBx;
     }
 }
 

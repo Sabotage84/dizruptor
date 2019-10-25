@@ -31,7 +31,7 @@ namespace Dizruptor
         {
             allWords_lstbx.Items.Clear();
             FileToWords fw = new FileToWords();
-            fw.ReadTXTFile(@"test.txt");
+            fw.ReadTXTFile(pathToBook_txtBx.Text);
             w = fw.GetStatistic();
             foreach (var item in w.allWordsDic)
             {
@@ -50,6 +50,13 @@ namespace Dizruptor
         {
             Words w = Words.GetInstance();
             w.SaveBadWords();
+        }
+
+        private void findFile_btn_Click(object sender, EventArgs e)
+        {
+            book_fd.ShowDialog();
+            pathToBook_txtBx.Text= book_fd.FileName;
+           
         }
     }
 }
