@@ -58,5 +58,22 @@ namespace Dizruptor
             pathToBook_txtBx.Text= book_fd.FileName;
            
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            WorkWithWord word = new WorkWithWord();
+            word.SetPath(@"E:/t1.docx");
+            word.OpenWordFile();
+
+            List<int> lst = word.FindPage("один");
+            string s = "";
+            foreach (var item in lst)
+            {
+                s += item+" ";
+            }
+            MessageBox.Show(s);
+
+            word.CloseAndQuit();
+        }
     }
 }

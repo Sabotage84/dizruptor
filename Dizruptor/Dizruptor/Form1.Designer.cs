@@ -35,6 +35,7 @@
             this.book_fd = new System.Windows.Forms.OpenFileDialog();
             this.findFile_btn = new System.Windows.Forms.Button();
             this.pathToBook_txtBx = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // allWords_lstbx
@@ -95,11 +96,22 @@
             this.pathToBook_txtBx.Size = new System.Drawing.Size(451, 20);
             this.pathToBook_txtBx.TabIndex = 6;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(714, 440);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 475);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pathToBook_txtBx);
             this.Controls.Add(this.findFile_btn);
             this.Controls.Add(this.badWords_lstBx);
@@ -123,6 +135,7 @@
         private System.Windows.Forms.OpenFileDialog book_fd;
         private System.Windows.Forms.Button findFile_btn;
         private System.Windows.Forms.TextBox pathToBook_txtBx;
+        private System.Windows.Forms.Button button1;
     }
 }
 

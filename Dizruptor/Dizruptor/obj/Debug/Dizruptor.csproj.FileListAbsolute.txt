@@ -7,3 +7,5 @@ C:\projects\dizruptor\Dizruptor\Dizruptor\obj\Debug\Dizruptor.Properties.Resourc
 C:\projects\dizruptor\Dizruptor\Dizruptor\obj\Debug\Dizruptor.csproj.GenerateResource.cache
 C:\projects\dizruptor\Dizruptor\Dizruptor\obj\Debug\Dizruptor.exe
 C:\projects\dizruptor\Dizruptor\Dizruptor\obj\Debug\Dizruptor.pdb
+C:\projects\dizruptor\Dizruptor\Dizruptor\obj\Debug\Dizruptor.csproj.ResolveComReference.cache
+C:\projects\dizruptor\Dizruptor\Dizruptor\obj\Debug\Dizruptor.csproj.CoreCompileInputs.cache
