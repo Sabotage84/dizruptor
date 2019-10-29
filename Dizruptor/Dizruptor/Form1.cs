@@ -13,6 +13,7 @@ namespace Dizruptor
     public partial class Form1 : Form
     {
         Words w =Words.GetInstance();
+       
         public Form1()
         {
             InitializeComponent();
@@ -62,7 +63,7 @@ namespace Dizruptor
         private void button1_Click(object sender, EventArgs e)
         {
             WorkWithWord word = new WorkWithWord();
-            word.SetPath(@"E:/t1.docx");
+            word.SetPath(PathToWordFile_txtbx.Text);
             word.OpenWordFile();
 
             List<int> lst = word.FindPage("один");
@@ -74,6 +75,19 @@ namespace Dizruptor
             MessageBox.Show(s);
 
             word.CloseAndQuit();
+        }
+
+        private void PathToWordFile_btn_Click(object sender, EventArgs e)
+        {
+            word_FD.ShowDialog();
+            PathToWordFile_txtbx.Text = word_FD.FileName;
+        }
+
+        private void ToTarget_btn_Click(object sender, EventArgs e)
+        {
+            string s= allWords_lstbx.SelectedItem.ToString();
+            string[] v = s.Split(' ');
+            TargetWords_lstBx.Items.Add(v[0]);
         }
     }
 }
