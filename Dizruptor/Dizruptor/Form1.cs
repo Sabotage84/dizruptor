@@ -63,10 +63,16 @@ namespace Dizruptor
         private void button1_Click(object sender, EventArgs e)
         {
             WorkWithWord word = new WorkWithWord();
-            word.SetPath(PathToWordFile_txtbx.Text);
-            word.OpenWordFile();
+            //word.SetPath(PathToWordFile_txtbx.Text);
+            //word.OpenWordFile();
 
-            List<int> lst = word.FindPage("один");
+            WorkWithPDF PDF = new WorkWithPDF();
+            
+
+            List<int> lst = new List<int>();
+
+            lst = PDF.ReadPdfFile(PathToWordFile_txtbx.Text, "Вульва");
+            //lst = word.FindPage("один");
             string s = "";
             foreach (var item in lst)
             {
@@ -74,7 +80,7 @@ namespace Dizruptor
             }
             MessageBox.Show(s);
 
-            word.CloseAndQuit();
+            //word.CloseAndQuit();
         }
 
         private void PathToWordFile_btn_Click(object sender, EventArgs e)
