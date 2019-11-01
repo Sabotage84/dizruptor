@@ -31,10 +31,14 @@ namespace Dizruptor
         private void start_btn_Click(object sender, EventArgs e)
         {
             allWords_lstbx.Items.Clear();
-            FileToWords fw = new FileToWords();
-            fw.ReadTXTFile(pathToBook_txtBx.Text);
-            w = fw.GetStatistic();
-            foreach (var item in w.allWordsDic)
+            //FileToWords fw = new FileToWords();
+            //fw.ReadTXTFile(pathToBook_txtBx.Text);
+            //w = fw.GetStatistic();
+
+            WorkWithPDF PDF = new WorkWithPDF();
+            var pdfWords = PDF.ReadAllPDF(pathToBook_txtBx.Text);
+
+            foreach (var item in pdfWords)
             {
                 allWords_lstbx.Items.Add(item.Key+" ------>>> "+item.Value);
             }
@@ -72,6 +76,7 @@ namespace Dizruptor
             List<int> lst = new List<int>();
 
             lst = PDF.ReadPdfFile(PathToWordFile_txtbx.Text, "Вульва");
+            
             //lst = word.FindPage("один");
             string s = "";
             foreach (var item in lst)

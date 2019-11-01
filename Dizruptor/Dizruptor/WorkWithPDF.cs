@@ -31,5 +31,36 @@ namespace Dizruptor
             }
             return pages;
         }
+
+        public SortedDictionary<string, int> ReadAllPDF(string fileName)
+        {
+            SortedDictionary<string, int> res = new SortedDictionary<string, int>();
+            if (File.Exists(fileName))
+            {
+                PdfReader pdfReader = new PdfReader(fileName);
+                for (int page = 1; page <= pdfReader.NumberOfPages; page++)
+                {
+                    ITextExtractionStrategy strategy = new SimpleTextExtractionStrategy();
+
+                    string currentPageText = PdfTextExtractor.GetTextFromPage(pdfReader, page, strategy);
+                    var t = currentPageText.Split(' ', ',', '.', ':', '-', '!', '@', '#', ';', '*', '<', '>', '?', '|', '{', '}', '[', ']', '(', ')', '%', '\t', '&', '/', '«', '»', '–');
+                    int s = 0;
+                    foreach (var w in t)
+                    {
+                        if (!int.TryParse(w, out s))
+                        {
+                            if (res.ContainsKey(w))
+                                res[w]++;
+                            else
+                            {
+                                res.Add(w, 1);
+                            }
+                        }
+                    }
+                }
+                pdfReader.Close();
+            }
+            return res;
+        }
     }
 }
