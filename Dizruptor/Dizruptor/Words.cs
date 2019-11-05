@@ -12,6 +12,7 @@ namespace Dizruptor
         private static readonly Words instance = new Words();
         public SortedDictionary<string, int> allWordsDic;
         public SortedList<string, int> badWords= new SortedList<string, int>();
+	public SortedList<string, List<string>> targetList= new SortedList<string, List<string>>();
 
         Words()
         {
