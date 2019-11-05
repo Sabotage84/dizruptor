@@ -43,7 +43,7 @@ namespace Dizruptor
                     ITextExtractionStrategy strategy = new SimpleTextExtractionStrategy();
 
                     string currentPageText = PdfTextExtractor.GetTextFromPage(pdfReader, page, strategy);
-                    var t = currentPageText.Split(' ', ',', '.', ':', '-', '!', '@', '#', ';', '*', '<', '>', '?', '|', '{', '}', '[', ']', '(', ')', '%', '\t', '&', '/', '«', '»', '–');
+                    var t = currentPageText.Split(' ', ',', '.', ':', '-', '!', '@', '#', ';', '*', '<', '>', '?', '|', '{', '}', '[', ']', '(', ')', '%', '\t', '&', '/', '«', '»', '–', '\n');
                     int s = 0;
                     foreach (var w in t)
                     {

@@ -36,7 +36,7 @@ namespace Dizruptor
             //w = fw.GetStatistic();
 
             WorkWithPDF PDF = new WorkWithPDF();
-            var pdfWords = PDF.ReadAllPDF(pathToBook_txtBx.Text);
+            var pdfWords = w.FilterAllWords(PDF.ReadAllPDF(pathToBook_txtBx.Text));
 
             foreach (var item in pdfWords)
             {
@@ -46,9 +46,9 @@ namespace Dizruptor
 
         private void ToBadWords_btn_Click(object sender, EventArgs e)
         {
-            string temp = (w.allWordsDic.ElementAt(allWords_lstbx.Items.IndexOf(allWords_lstbx.SelectedItem)).Key);
-            badWords_lstBx.Items.Add(temp);
-            w.AddBadWord(temp);
+            string[] temp =  allWords_lstbx.SelectedItem.ToString().Split(' ');
+            badWords_lstBx.Items.Add(temp[0]);
+            w.AddBadWord(temp[0]);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -99,6 +99,19 @@ namespace Dizruptor
             string s= allWords_lstbx.SelectedItem.ToString();
             string[] v = s.Split(' ');
             TargetWords_lstBx.Items.Add(v[0]);
+        }
+
+        private void combineWords_btn_Click(object sender, EventArgs e)
+        {
+            var t = TargetWords_lstBx.SelectedItems;
+            string str = "";
+            foreach (var item in t)
+            {
+                str += item.ToString() + Environment.NewLine;
+
+            }
+
+            MessageBox.Show(str);
         }
     }
 }

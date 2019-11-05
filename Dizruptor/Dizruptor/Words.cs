@@ -23,6 +23,21 @@ namespace Dizruptor
             }
         }
 
+        public SortedDictionary<string,int> FilterAllWords(SortedDictionary<string,int> allWords )
+        {
+
+
+            SortedDictionary<string, int> res = new SortedDictionary<string, int>();
+            foreach (var item in allWords)
+            {
+                if (!badWords.ContainsKey(item.Key))
+                    res.Add(item.Key, item.Value);
+            }
+
+            return res;
+        }
+
+
         public void AddCurrentWord(string w)
         {
             if (!badWords.ContainsKey(w))
