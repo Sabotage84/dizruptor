@@ -98,7 +98,24 @@ namespace Dizruptor
         {
             string s= allWords_lstbx.SelectedItem.ToString();
             string[] v = s.Split(' ');
-            TargetWords_lstBx.Items.Add(v[0]);
+            if (TargetWords_lstBx.SelectedItem == null)
+            {
+                TargetWords_lstBx.Items.Add(v[0]);
+                if (!w.targetList.ContainsKey(v[0]))
+                {
+                    w.targetList.Add(v[0], new List<string>());
+                    w.targetList[v[0]].Add(v[0]);
+                }
+                else
+                {
+                    MessageBox.Show("Словарь уже содержит данное значение!");
+                }
+            }
+            else
+            {
+                w.targetList[TargetWords_lstBx.SelectedItem.ToString()].Add(v[0]);
+            }
+
         }
 
         private void combineWords_btn_Click(object sender, EventArgs e)
