@@ -120,15 +120,39 @@ namespace Dizruptor
 
         private void combineWords_btn_Click(object sender, EventArgs e)
         {
-            var t = TargetWords_lstBx.SelectedItems;
-            string str = "";
-            foreach (var item in t)
-            {
-                str += item.ToString() + Environment.NewLine;
+            string test = "";
+            
+            test += TargetWords_lstBx.SelectedItems[0].ToString() + Environment.NewLine;
 
+            
+            
+            for (int i = 1; i < TargetWords_lstBx.SelectedItems.Count; i++)
+            {
+                foreach (var item in w.targetList[TargetWords_lstBx.SelectedItems[i].ToString()])
+                {
+                    w.targetList[TargetWords_lstBx.SelectedItems[0].ToString()].Add(item);
+                }
+                
             }
 
-            MessageBox.Show(str);
+            for (int i = 1; i < TargetWords_lstBx.SelectedItems.Count; i++)
+            {
+                 w.targetList.Remove(TargetWords_lstBx.SelectedItems[i].ToString());
+            }
+
+            w.targetList[TargetWords_lstBx.SelectedItems[0].ToString()].Distinct();
+
+            TargetWords_lstBx.Items.Clear();
+            foreach (var item in w.targetList.Keys)
+            {
+                TargetWords_lstBx.Items.Add(item);
+            }
+
+            //foreach (var item in w.targetList[TargetWords_lstBx.SelectedItems[0].ToString()])
+            //{
+            //    test += item + Environment.NewLine;
+            //}
+            //MessageBox.Show(test);
         }
     }
 }
