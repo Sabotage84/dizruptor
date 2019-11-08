@@ -13,7 +13,8 @@ namespace Dizruptor
     public partial class Form1 : Form
     {
         Words w =Words.GetInstance();
-       
+        WorkWithPDF PDF = new WorkWithPDF();
+
         public Form1()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace Dizruptor
             //fw.ReadTXTFile(pathToBook_txtBx.Text);
             //w = fw.GetStatistic();
 
-            WorkWithPDF PDF = new WorkWithPDF();
+            
             var pdfWords = w.FilterAllWords(PDF.ReadAllPDF(pathToBook_txtBx.Text));
 
             foreach (var item in pdfWords)
@@ -70,7 +71,7 @@ namespace Dizruptor
             //word.SetPath(PathToWordFile_txtbx.Text);
             //word.OpenWordFile();
 
-            WorkWithPDF PDF = new WorkWithPDF();
+           
             
 
             List<int> lst = new List<int>();
@@ -153,6 +154,26 @@ namespace Dizruptor
             //    test += item + Environment.NewLine;
             //}
             //MessageBox.Show(test);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string test = "";
+            foreach (var item in w.targetList)
+            {
+                test += item.Key + "---->";
+                foreach (var word in item.Value)
+                {
+                    List<int> pages = PDF.ReadPdfFile(pathToBook_txtBx.Text, word);
+                    foreach (var p in pages)
+                    {
+                        test += p.ToString() + " ";
+                    }
+                }
+                test += Environment.NewLine;
+            }
+
+            MessageBox.Show(test);
         }
     }
 }

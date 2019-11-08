@@ -32,6 +32,11 @@ namespace Dizruptor
             return pages;
         }
 
+        public SortedDictionary<string, List<int>> ExtractAllWordsFromPDF(string filename)
+        {
+            //TODO
+        }
+
         public SortedDictionary<string, int> ReadAllPDF(string fileName)
         {
             SortedDictionary<string, int> res = new SortedDictionary<string, int>();

@@ -45,6 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.word_FD = new System.Windows.Forms.OpenFileDialog();
             this.combineWords_btn = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // allWords_lstbx
@@ -107,7 +108,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(723, 440);
+            this.button1.Location = new System.Drawing.Point(663, 444);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(65, 23);
             this.button1.TabIndex = 7;
@@ -185,20 +186,31 @@
             // combineWords_btn
             // 
             this.combineWords_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.combineWords_btn.Location = new System.Drawing.Point(734, 200);
+            this.combineWords_btn.Location = new System.Drawing.Point(734, 206);
             this.combineWords_btn.Name = "combineWords_btn";
-            this.combineWords_btn.Size = new System.Drawing.Size(36, 25);
+            this.combineWords_btn.Size = new System.Drawing.Size(36, 29);
             this.combineWords_btn.TabIndex = 15;
             this.combineWords_btn.Text = "+";
             this.combineWords_btn.UseCompatibleTextRendering = true;
             this.combineWords_btn.UseVisualStyleBackColor = true;
             this.combineWords_btn.Click += new System.EventHandler(this.combineWords_btn_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(522, 444);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(108, 23);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Make dictionary";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 475);
+            this.ClientSize = new System.Drawing.Size(831, 510);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.combineWords_btn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ToTarget_btn);
@@ -241,6 +253,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.OpenFileDialog word_FD;
         private System.Windows.Forms.Button combineWords_btn;
+        private System.Windows.Forms.Button button2;
     }
 }
 
