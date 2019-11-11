@@ -30,18 +30,5 @@ namespace Dizruptor
                 }
             }
         }
-
-        public Words GetStatistic()
-        {
-            Words w = Words.GetInstance();
-            w.allWordsDic.Clear();
-            LinesToWords();
-            foreach (var item in words)
-            {
-                w.AddCurrentWord(item);
-            }
-            
-            return w;
-        }
     }
 }

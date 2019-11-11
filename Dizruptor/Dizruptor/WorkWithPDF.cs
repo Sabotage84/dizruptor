@@ -32,9 +32,38 @@ namespace Dizruptor
             return pages;
         }
 
-        public SortedDictionary<string, List<int>> ExtractAllWordsFromPDF(string filename)
+        public SortedDictionary<string, List<int>> ExtractAllWordsFromPDF(string fileName)
         {
-            //TODO
+            SortedDictionary<string, List<int>> res = new SortedDictionary<string, List<int>>();
+            List<int> pages = new List<int>();
+            if (File.Exists(fileName))
+            {
+                PdfReader pdfReader = new PdfReader(fileName);
+                for (int page = 1; page <= pdfReader.NumberOfPages; page++)
+                {
+                    ITextExtractionStrategy strategy = new SimpleTextExtractionStrategy();
+
+                    string currentPageText = PdfTextExtractor.GetTextFromPage(pdfReader, page, strategy);
+                    var t = currentPageText.Split(' ', ',', '.', ':', '-', '!', '@', '#', ';', '*', '<', '>', '?', '|', '{', '}', '[', ']', '(', ')', '%', '\t', '&', '/', '«', '»', '–', '\n');
+                    int s = 0;
+                    foreach (var w in t)
+                    {
+                        if (!int.TryParse(w, out s))
+                        {
+                            if (res.ContainsKey(w))
+                                res[w].Add(page);
+                            else
+                            {
+                                res.Add(w, new List<int>());
+                                res[w].Add(page);
+                            }
+                        }
+                    }
+
+                }
+                pdfReader.Close();
+            }
+            return res;
         }
 
         public SortedDictionary<string, int> ReadAllPDF(string fileName)

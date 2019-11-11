@@ -36,8 +36,9 @@ namespace Dizruptor
             //fw.ReadTXTFile(pathToBook_txtBx.Text);
             //w = fw.GetStatistic();
 
-            
-            var pdfWords = w.FilterAllWords(PDF.ReadAllPDF(pathToBook_txtBx.Text));
+            w.GetAllWordsFromPDF(pathToBook_txtBx.Text);
+
+            var pdfWords = w.GetWordsFreq();
 
             foreach (var item in pdfWords)
             {
@@ -164,7 +165,7 @@ namespace Dizruptor
                 test += item.Key + "---->";
                 foreach (var word in item.Value)
                 {
-                    List<int> pages = PDF.ReadPdfFile(pathToBook_txtBx.Text, word);
+                    List<int> pages = w.allWordsDic[word];
                     foreach (var p in pages)
                     {
                         test += p.ToString() + " ";
