@@ -50,12 +50,13 @@ namespace Dizruptor
                     {
                         if (!int.TryParse(w, out s))
                         {
-                            if (res.ContainsKey(w))
-                                res[w].Add(page);
+                            
+                            if (res.ContainsKey(w.ToLower()))
+                                res[w.ToLower()].Add(page);
                             else
                             {
-                                res.Add(w, new List<int>());
-                                res[w].Add(page);
+                                res.Add(w.ToLower(), new List<int>());
+                                res[w.ToLower()].Add(page);
                             }
                         }
                     }
