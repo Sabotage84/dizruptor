@@ -77,7 +77,7 @@ namespace Dizruptor
 
             List<int> lst = new List<int>();
 
-            lst = PDF.ReadPdfFile(PathToWordFile_txtbx.Text, "Вульва");
+            //lst = PDF.ReadPdfFile(PathToWordFile_txtbx.Text, "Вульва");
             
             //lst = word.FindPage("один");
             string s = "";
@@ -93,7 +93,7 @@ namespace Dizruptor
         private void PathToWordFile_btn_Click(object sender, EventArgs e)
         {
             word_FD.ShowDialog();
-            PathToWordFile_txtbx.Text = word_FD.FileName;
+            //PathToWordFile_txtbx.Text = word_FD.FileName;
         }
 
         private void ToTarget_btn_Click(object sender, EventArgs e)
@@ -175,6 +175,18 @@ namespace Dizruptor
             }
 
             MessageBox.Show(test);
+        }
+
+        private void TargetWords_lstBx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            innerWords_lstbx.Items.Clear();
+            foreach (var item in TargetWords_lstBx.SelectedItems)
+            {
+                foreach ( var word in w.targetList[item.ToString()])
+                {
+                    innerWords_lstbx.Items.Add(word);
+                }
+            }
         }
     }
 }

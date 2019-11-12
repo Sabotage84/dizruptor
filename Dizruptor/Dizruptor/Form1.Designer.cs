@@ -36,8 +36,6 @@
             this.findFile_btn = new System.Windows.Forms.Button();
             this.pathToBook_txtBx = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.PathToWordFile_txtbx = new System.Windows.Forms.TextBox();
-            this.PathToWordFile_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TargetWords_lstBx = new System.Windows.Forms.ListBox();
@@ -46,6 +44,7 @@
             this.word_FD = new System.Windows.Forms.OpenFileDialog();
             this.combineWords_btn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.innerWords_lstbx = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // allWords_lstbx
@@ -62,7 +61,7 @@
             this.start_btn.Name = "start_btn";
             this.start_btn.Size = new System.Drawing.Size(75, 23);
             this.start_btn.TabIndex = 1;
-            this.start_btn.Text = "Scan txt file";
+            this.start_btn.Text = "Scan file";
             this.start_btn.UseVisualStyleBackColor = true;
             this.start_btn.Click += new System.EventHandler(this.start_btn_Click);
             // 
@@ -108,30 +107,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(663, 444);
+            this.button1.Location = new System.Drawing.Point(632, 444);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(65, 23);
             this.button1.TabIndex = 7;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // PathToWordFile_txtbx
-            // 
-            this.PathToWordFile_txtbx.Location = new System.Drawing.Point(458, 20);
-            this.PathToWordFile_txtbx.Name = "PathToWordFile_txtbx";
-            this.PathToWordFile_txtbx.Size = new System.Drawing.Size(290, 20);
-            this.PathToWordFile_txtbx.TabIndex = 8;
-            // 
-            // PathToWordFile_btn
-            // 
-            this.PathToWordFile_btn.Location = new System.Drawing.Point(754, 20);
-            this.PathToWordFile_btn.Name = "PathToWordFile_btn";
-            this.PathToWordFile_btn.Size = new System.Drawing.Size(25, 21);
-            this.PathToWordFile_btn.TabIndex = 9;
-            this.PathToWordFile_btn.Text = "...";
-            this.PathToWordFile_btn.UseVisualStyleBackColor = true;
-            this.PathToWordFile_btn.Click += new System.EventHandler(this.PathToWordFile_btn_Click);
             // 
             // label1
             // 
@@ -154,11 +136,12 @@
             // TargetWords_lstBx
             // 
             this.TargetWords_lstBx.FormattingEnabled = true;
-            this.TargetWords_lstBx.Location = new System.Drawing.Point(522, 70);
+            this.TargetWords_lstBx.Location = new System.Drawing.Point(491, 70);
             this.TargetWords_lstBx.Name = "TargetWords_lstBx";
             this.TargetWords_lstBx.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.TargetWords_lstBx.Size = new System.Drawing.Size(206, 368);
+            this.TargetWords_lstBx.Size = new System.Drawing.Size(172, 368);
             this.TargetWords_lstBx.TabIndex = 12;
+            this.TargetWords_lstBx.SelectedIndexChanged += new System.EventHandler(this.TargetWords_lstBx_SelectedIndexChanged);
             // 
             // ToTarget_btn
             // 
@@ -173,7 +156,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(522, 51);
+            this.label3.Location = new System.Drawing.Point(491, 51);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 14;
@@ -186,7 +169,7 @@
             // combineWords_btn
             // 
             this.combineWords_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.combineWords_btn.Location = new System.Drawing.Point(734, 206);
+            this.combineWords_btn.Location = new System.Drawing.Point(669, 293);
             this.combineWords_btn.Name = "combineWords_btn";
             this.combineWords_btn.Size = new System.Drawing.Size(36, 29);
             this.combineWords_btn.TabIndex = 15;
@@ -197,7 +180,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(522, 444);
+            this.button2.Location = new System.Drawing.Point(491, 444);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(108, 23);
             this.button2.TabIndex = 16;
@@ -205,11 +188,20 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // innerWords_lstbx
+            // 
+            this.innerWords_lstbx.FormattingEnabled = true;
+            this.innerWords_lstbx.Location = new System.Drawing.Point(700, 70);
+            this.innerWords_lstbx.Name = "innerWords_lstbx";
+            this.innerWords_lstbx.Size = new System.Drawing.Size(120, 134);
+            this.innerWords_lstbx.TabIndex = 17;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(831, 510);
+            this.ClientSize = new System.Drawing.Size(862, 510);
+            this.Controls.Add(this.innerWords_lstbx);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.combineWords_btn);
             this.Controls.Add(this.label3);
@@ -217,8 +209,6 @@
             this.Controls.Add(this.TargetWords_lstBx);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.PathToWordFile_btn);
-            this.Controls.Add(this.PathToWordFile_txtbx);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pathToBook_txtBx);
             this.Controls.Add(this.findFile_btn);
@@ -244,8 +234,6 @@
         private System.Windows.Forms.Button findFile_btn;
         private System.Windows.Forms.TextBox pathToBook_txtBx;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox PathToWordFile_txtbx;
-        private System.Windows.Forms.Button PathToWordFile_btn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox TargetWords_lstBx;
@@ -254,6 +242,7 @@
         private System.Windows.Forms.OpenFileDialog word_FD;
         private System.Windows.Forms.Button combineWords_btn;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox innerWords_lstbx;
     }
 }
 
