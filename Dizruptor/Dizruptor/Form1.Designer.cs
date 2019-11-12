@@ -45,6 +45,7 @@
             this.combineWords_btn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.innerWords_lstbx = new System.Windows.Forms.ListBox();
+            this.removeWord_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // allWords_lstbx
@@ -191,16 +192,27 @@
             // innerWords_lstbx
             // 
             this.innerWords_lstbx.FormattingEnabled = true;
-            this.innerWords_lstbx.Location = new System.Drawing.Point(700, 70);
+            this.innerWords_lstbx.Location = new System.Drawing.Point(669, 70);
             this.innerWords_lstbx.Name = "innerWords_lstbx";
             this.innerWords_lstbx.Size = new System.Drawing.Size(120, 134);
             this.innerWords_lstbx.TabIndex = 17;
+            // 
+            // removeWord_btn
+            // 
+            this.removeWord_btn.Location = new System.Drawing.Point(703, 210);
+            this.removeWord_btn.Name = "removeWord_btn";
+            this.removeWord_btn.Size = new System.Drawing.Size(86, 23);
+            this.removeWord_btn.TabIndex = 18;
+            this.removeWord_btn.Text = "Remove word";
+            this.removeWord_btn.UseVisualStyleBackColor = true;
+            this.removeWord_btn.Click += new System.EventHandler(this.removeWord_btn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 510);
+            this.Controls.Add(this.removeWord_btn);
             this.Controls.Add(this.innerWords_lstbx);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.combineWords_btn);
@@ -243,6 +255,7 @@
         private System.Windows.Forms.Button combineWords_btn;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListBox innerWords_lstbx;
+        private System.Windows.Forms.Button removeWord_btn;
     }
 }
 

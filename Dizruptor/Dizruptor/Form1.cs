@@ -14,6 +14,7 @@ namespace Dizruptor
     {
         Words w =Words.GetInstance();
         WorkWithPDF PDF = new WorkWithPDF();
+        List<string> targetWordsChose = new List<string>();
 
         public Form1()
         {
@@ -32,10 +33,7 @@ namespace Dizruptor
         private void start_btn_Click(object sender, EventArgs e)
         {
             allWords_lstbx.Items.Clear();
-            //FileToWords fw = new FileToWords();
-            //fw.ReadTXTFile(pathToBook_txtBx.Text);
-            //w = fw.GetStatistic();
-
+           
             w.GetAllWordsFromPDF(pathToBook_txtBx.Text);
 
             var pdfWords = w.GetWordsFreq();
@@ -68,33 +66,10 @@ namespace Dizruptor
 
         private void button1_Click(object sender, EventArgs e)
         {
-            WorkWithWord word = new WorkWithWord();
-            //word.SetPath(PathToWordFile_txtbx.Text);
-            //word.OpenWordFile();
-
            
-            
-
-            List<int> lst = new List<int>();
-
-            //lst = PDF.ReadPdfFile(PathToWordFile_txtbx.Text, "Вульва");
-            
-            //lst = word.FindPage("один");
-            string s = "";
-            foreach (var item in lst)
-            {
-                s += item+" ";
-            }
-            MessageBox.Show(s);
-
-            //word.CloseAndQuit();
         }
 
-        private void PathToWordFile_btn_Click(object sender, EventArgs e)
-        {
-            word_FD.ShowDialog();
-            //PathToWordFile_txtbx.Text = word_FD.FileName;
-        }
+       
 
         private void ToTarget_btn_Click(object sender, EventArgs e)
         {
@@ -179,11 +154,55 @@ namespace Dizruptor
 
         private void TargetWords_lstBx_SelectedIndexChanged(object sender, EventArgs e)
         {
+            RefreshInnerList();
+        }
+
+        private void removeWord_btn_Click(object sender, EventArgs e)
+        {
+            if (innerWords_lstbx.SelectedItem==null)
+                MessageBox.Show("Выберите слово для удаления!");
+            else
+            {
+                foreach (var item in targetWordsChose)
+                {
+                    if (w.targetList.ContainsKey(item))
+                    {
+                        if (w.targetList[item].Contains(innerWords_lstbx.SelectedItem.ToString()))
+                        {
+                            w.targetList[item].Remove(innerWords_lstbx.SelectedItem.ToString());
+
+                        }
+                        if (w.targetList[item].Count == 0)
+                        {
+                            w.targetList.Remove(item);
+                            RefreshTargetList();
+                        }
+                    }
+                }
+                RefreshInnerList();
+
+            }
+        }
+
+        private void RefreshTargetList()
+        {
+            TargetWords_lstBx.Items.Clear();
+            foreach (var item in w.targetList.Keys)
+            {
+                TargetWords_lstBx.Items.Add(item);
+            }
+        }
+
+        private void RefreshInnerList()
+        {
             innerWords_lstbx.Items.Clear();
+            targetWordsChose.Clear();
             foreach (var item in TargetWords_lstBx.SelectedItems)
             {
-                foreach ( var word in w.targetList[item.ToString()])
+                targetWordsChose.Add(item.ToString());
+                foreach (var word in w.targetList[item.ToString()])
                 {
+
                     innerWords_lstbx.Items.Add(word);
                 }
             }
