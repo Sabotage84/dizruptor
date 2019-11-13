@@ -134,22 +134,58 @@ namespace Dizruptor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string test = "";
+            string res = "";
+            string mainWord = "";
+            string innerWords = "";
+            string shortPages = "";
+            string allPages = "";
+            List<int> pages = new List<int>();
             foreach (var item in w.targetList)
             {
-                test += item.Key + "---->";
+                mainWord = item.Key;
+
                 foreach (var word in item.Value)
                 {
-                    List<int> pages = w.allWordsDic[word];
-                    foreach (var p in pages)
-                    {
-                        test += p.ToString() + " ";
-                    }
+                    innerWords += word + " ";
+                    pages.AddRange( w.allWordsDic[word]);
+                    
                 }
-                test += Environment.NewLine;
+
+                pages.Sort();
+
+                for (int i = 0; i < pages.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        shortPages += pages[i];
+                    }
+                    else if (pages[i] == pages[i - 1])
+                    {
+
+                    }
+                    else if (pages[i] == pages[i - 1] + 1)
+                    {
+                        shortPages += " -";
+                    }
+                    else
+                    {
+                        if (shortPages[shortPages.Length - 1] == '-')
+                        {
+                            shortPages += " " + pages[i - 1] + " " + pages[i];
+                        }
+                        else
+                            shortPages += " " + pages[i] + " ";
+                    }
+
+                    allPages += pages[i] + " ";
+                }
+
+                res += mainWord + " (" + innerWords + ") " + shortPages + " (" + allPages + ")" + Environment.NewLine;
+
+                pages.Clear();
             }
 
-            MessageBox.Show(test);
+            MessageBox.Show(res);
         }
 
         private void TargetWords_lstBx_SelectedIndexChanged(object sender, EventArgs e)
