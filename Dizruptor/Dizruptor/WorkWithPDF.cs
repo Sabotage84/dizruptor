@@ -44,8 +44,13 @@ namespace Dizruptor
                     ITextExtractionStrategy strategy = new SimpleTextExtractionStrategy();
 
                     string currentPageText = PdfTextExtractor.GetTextFromPage(pdfReader, page, strategy);
-                    currentPageText = currentPageText.Replace("­\n", "");
-                    currentPageText = currentPageText.Replace("—\r\n", "");
+
+                    int per = 173;
+                    char p = (char)per;
+                    currentPageText = currentPageText.Replace(p.ToString()+ "\n" , "");
+                    
+                    //currentPageText = currentPageText.Replace("­\n", "");
+                    
                     var t = currentPageText.Split(' ', ',', '.', ':', '-', '!', '@', '#', ';', '*', '<', '>', '?', '|', '{', '}', '[', ']', '(', ')', '%', '\t', '&', '/', '«', '»', '–', '\n');
                     int s = 0;
                     foreach(var w in t)
