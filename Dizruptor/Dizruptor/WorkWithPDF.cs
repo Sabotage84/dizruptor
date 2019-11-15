@@ -38,22 +38,56 @@ namespace Dizruptor
             List<int> pages = new List<int>();
             if (File.Exists(fileName))
             {
+                string firstPrefficks = "";
+                bool flag = false;
                 PdfReader pdfReader = new PdfReader(fileName);
                 for (int page = 1; page <= pdfReader.NumberOfPages; page++)
                 {
                     ITextExtractionStrategy strategy = new SimpleTextExtractionStrategy();
 
-                    string currentPageText = PdfTextExtractor.GetTextFromPage(pdfReader, page, strategy);
 
                     int per = 173;
                     char p = (char)per;
-                    currentPageText = currentPageText.Replace(p.ToString()+ "\n" , "");
-                    
+
+
+
+                    string currentPageText = PdfTextExtractor.GetTextFromPage(pdfReader, page, strategy);
+
+                    if (flag)
+                    {
+                        currentPageText = firstPrefficks + currentPageText;
+                        flag = false;
+                    }
+                    int numberOfPage = 0;
+                    for (int i = currentPageText.Length - 1; i >= 0; i--)
+                    {
+                        int r;
+                        if (int.TryParse(currentPageText[i].ToString(), out r))
+                        {
+                            numberOfPage++;
+                        }
+                        else
+                            break;
+                    }
+                    currentPageText = currentPageText.Substring(0, currentPageText.Length - numberOfPage);
+                    if (currentPageText.EndsWith("-\n"))
+                    {
+                        flag = true;
+                    }
+
+                    currentPageText = currentPageText.Replace(p.ToString() + "\n", "");
                     //currentPageText = currentPageText.Replace("­\n", "");
-                    
-                    var t = currentPageText.Split(' ', ',', '.', ':', '-', '!', '@', '#', ';', '*', '<', '>', '?', '|', '{', '}', '[', ']', '(', ')', '%', '\t', '&', '/', '«', '»', '–', '\n');
+
+
+
+                    var t1 = currentPageText.Split(' ', ',', '.', ':', '-', '!', '@', '#', ';', '*', '<', '>', '?', '|', '{', '}', '[', ']', '(', ')', '%', '\t', '&', '/', '«', '»', '–', '\n');
+                    List<string> t= t1.ToList();
+                    t.RemoveAll(string.IsNullOrEmpty);
+                    if (flag)
+                     firstPrefficks = t.Last();
+
                     int s = 0;
-                    foreach(var w in t)
+                    foreach (var w in t)
                     {
                         if (!int.TryParse(w, out s))
                         {
