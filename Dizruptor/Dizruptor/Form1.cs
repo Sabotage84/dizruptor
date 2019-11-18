@@ -124,12 +124,6 @@ namespace Dizruptor
             {
                 TargetWords_lstBx.Items.Add(item);
             }
-
-            //foreach (var item in w.targetList[TargetWords_lstBx.SelectedItems[0].ToString()])
-            //{
-            //    test += item + Environment.NewLine;
-            //}
-            //MessageBox.Show(test);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -183,6 +177,11 @@ namespace Dizruptor
                 res += mainWord + " (" + innerWords + ") " + shortPages + " (" + allPages + ")" + Environment.NewLine;
 
                 pages.Clear();
+                mainWord = "";
+                innerWords = "";
+                shortPages = "";
+                allPages = "";
+
             }
 
             MessageBox.Show(res);

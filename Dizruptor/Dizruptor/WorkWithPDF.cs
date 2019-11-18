@@ -52,12 +52,8 @@ namespace Dizruptor
 
 
                     string currentPageText = PdfTextExtractor.GetTextFromPage(pdfReader, page, strategy);
-
-                    if (flag)
-                    {
-                        currentPageText = firstPrefficks + currentPageText;
-                        flag = false;
-                    }
+                    
+                    
                     int numberOfPage = 0;
                     for (int i = currentPageText.Length - 1; i >= 0; i--)
                     {
@@ -74,18 +70,34 @@ namespace Dizruptor
                     {
                         flag = true;
                     }
+                    else
+                    {
+                        flag = false;
+                    }
 
                     currentPageText = currentPageText.Replace(p.ToString() + "\n", "");
-                    //currentPageText = currentPageText.Replace("­\n", "");
+                    
 
 
 
                     var t1 = currentPageText.Split(' ', ',', '.', ':', '-', '!', '@', '#', ';', '*', '<', '>', '?', '|', '{', '}', '[', ']', '(', ')', '%', '\t', '&', '/', '«', '»', '–', '\n');
                     List<string> t= t1.ToList();
                     t.RemoveAll(string.IsNullOrEmpty);
-                    if (flag)
-                     firstPrefficks = t.Last();
 
+                    string tempPrefix = firstPrefficks;
+
+                    if (flag)
+                    {
+
+                        firstPrefficks = t.Last();
+                       
+                    }
+                    else
+                        firstPrefficks = string.Empty;
+
+                    if ((!string.IsNullOrEmpty(tempPrefix)) && t.Count > 1)
+                            t.Add(tempPrefix + t.First());
+                    
                     int s = 0;
                     foreach (var w in t)
                     {
