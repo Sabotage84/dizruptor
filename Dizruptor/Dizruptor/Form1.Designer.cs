@@ -35,7 +35,6 @@
             this.book_fd = new System.Windows.Forms.OpenFileDialog();
             this.findFile_btn = new System.Windows.Forms.Button();
             this.pathToBook_txtBx = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TargetWords_lstBx = new System.Windows.Forms.ListBox();
@@ -105,16 +104,6 @@
             this.pathToBook_txtBx.Name = "pathToBook_txtBx";
             this.pathToBook_txtBx.Size = new System.Drawing.Size(292, 20);
             this.pathToBook_txtBx.TabIndex = 6;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(632, 444);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(65, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -221,7 +210,6 @@
             this.Controls.Add(this.TargetWords_lstBx);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pathToBook_txtBx);
             this.Controls.Add(this.findFile_btn);
             this.Controls.Add(this.badWords_lstBx);
@@ -245,7 +233,6 @@
         private System.Windows.Forms.OpenFileDialog book_fd;
         private System.Windows.Forms.Button findFile_btn;
         private System.Windows.Forms.TextBox pathToBook_txtBx;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox TargetWords_lstBx;

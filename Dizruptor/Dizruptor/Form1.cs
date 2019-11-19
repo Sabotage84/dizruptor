@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -184,7 +185,10 @@ namespace Dizruptor
 
             }
 
-            MessageBox.Show(res);
+            using (StreamWriter w = new StreamWriter("result.txt", false, Encoding.GetEncoding(1251)))
+            {
+                w.WriteLine(res);
+            }
         }
 
         private void TargetWords_lstBx_SelectedIndexChanged(object sender, EventArgs e)

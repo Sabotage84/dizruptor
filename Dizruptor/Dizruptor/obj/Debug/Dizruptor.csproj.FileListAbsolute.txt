@@ -11,4 +11,3 @@ C:\projects\dizruptor\Dizruptor\Dizruptor\obj\Debug\Dizruptor.csproj.ResolveComR
 C:\projects\dizruptor\Dizruptor\Dizruptor\bin\Debug\itextsharp.dll
 C:\projects\dizruptor\Dizruptor\Dizruptor\bin\Debug\itextsharp.xml
 C:\projects\dizruptor\Dizruptor\Dizruptor\obj\Debug\Dizruptor.csproj.CopyComplete
-C:\projects\dizruptor\Dizruptor\Dizruptor\obj\Debug\Dizruptor.csproj.CoreCompileInputs.cache
