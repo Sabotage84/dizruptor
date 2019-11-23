@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace Dizruptor
 {
@@ -245,6 +246,44 @@ namespace Dizruptor
                     innerWords_lstbx.Items.Add(word);
                 }
             }
+        }
+
+        private void targetLoad_btn_Click(object sender, EventArgs e)
+        {
+            targetLoadFile_FD.ShowDialog();
+            targetListLoad_txtBx.Text = book_fd.FileName;
+        }
+
+        private void targetLoadWords_btn_Click(object sender, EventArgs e)
+        {
+            if ( targetListLoad_txtBx.Text.EndsWith("xml"))
+            {
+                XmlSerializer formatter = new XmlSerializer(typeof(SortedList<string, List<string>>));
+                using (FileStream fs = new FileStream(targetListLoad_txtBx.Text, FileMode.OpenOrCreate))
+                    {
+                        
+                        w.targetList= (SortedList<string, List<string>>)formatter.Deserialize(fs);
+                    }
+            }
+        }
+
+        private void saveTargetToXML_Click(object sender, EventArgs e)
+        {
+            XmlSerializer formatter = new XmlSerializer(typeof(TargetWordsTemp[]),
+                                 new XmlRootAttribute() { ElementName = "TargetItems" });
+
+            using (FileStream fs = new FileStream("targetWords.xml", FileMode.OpenOrCreate))
+            {
+                //foreach (var item in w.targetList)
+                //{
+                    //TargetWordsTemp t = new TargetWordsTemp(item.Key, item.Value);
+                    //formatter.Serialize(fs, t);
+                    formatter.Serialize(fs, w.targetList.Select(kv => new TargetWordsTemp(kv.Key,kv.Value)).ToArray());
+                //}
+                
+            }
+
+            
         }
     }
 }

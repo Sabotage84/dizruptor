@@ -45,6 +45,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.innerWords_lstbx = new System.Windows.Forms.ListBox();
             this.removeWord_btn = new System.Windows.Forms.Button();
+            this.targetListLoad_txtBx = new System.Windows.Forms.TextBox();
+            this.targetLoad_btn = new System.Windows.Forms.Button();
+            this.targetLoadFile_FD = new System.Windows.Forms.OpenFileDialog();
+            this.targetLoadWords_btn = new System.Windows.Forms.Button();
+            this.saveTargetToXML = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // allWords_lstbx
@@ -170,9 +175,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(491, 444);
+            this.button2.Location = new System.Drawing.Point(300, 453);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 23);
+            this.button2.Size = new System.Drawing.Size(163, 36);
             this.button2.TabIndex = 16;
             this.button2.Text = "Make dictionary";
             this.button2.UseVisualStyleBackColor = true;
@@ -196,11 +201,56 @@
             this.removeWord_btn.UseVisualStyleBackColor = true;
             this.removeWord_btn.Click += new System.EventHandler(this.removeWord_btn_Click);
             // 
+            // targetListLoad_txtBx
+            // 
+            this.targetListLoad_txtBx.Location = new System.Drawing.Point(491, 19);
+            this.targetListLoad_txtBx.Name = "targetListLoad_txtBx";
+            this.targetListLoad_txtBx.Size = new System.Drawing.Size(239, 20);
+            this.targetListLoad_txtBx.TabIndex = 19;
+            // 
+            // targetLoad_btn
+            // 
+            this.targetLoad_btn.Location = new System.Drawing.Point(727, 18);
+            this.targetLoad_btn.Name = "targetLoad_btn";
+            this.targetLoad_btn.Size = new System.Drawing.Size(27, 23);
+            this.targetLoad_btn.TabIndex = 20;
+            this.targetLoad_btn.Text = "...";
+            this.targetLoad_btn.UseVisualStyleBackColor = true;
+            this.targetLoad_btn.Click += new System.EventHandler(this.targetLoad_btn_Click);
+            // 
+            // targetLoadFile_FD
+            // 
+            this.targetLoadFile_FD.FileName = "targetLoadFile_FD";
+            // 
+            // targetLoadWords_btn
+            // 
+            this.targetLoadWords_btn.Location = new System.Drawing.Point(760, 19);
+            this.targetLoadWords_btn.Name = "targetLoadWords_btn";
+            this.targetLoadWords_btn.Size = new System.Drawing.Size(75, 23);
+            this.targetLoadWords_btn.TabIndex = 21;
+            this.targetLoadWords_btn.Text = "Load target";
+            this.targetLoadWords_btn.UseVisualStyleBackColor = true;
+            this.targetLoadWords_btn.Click += new System.EventHandler(this.targetLoadWords_btn_Click);
+            // 
+            // saveTargetToXML
+            // 
+            this.saveTargetToXML.Location = new System.Drawing.Point(584, 444);
+            this.saveTargetToXML.Name = "saveTargetToXML";
+            this.saveTargetToXML.Size = new System.Drawing.Size(79, 23);
+            this.saveTargetToXML.TabIndex = 22;
+            this.saveTargetToXML.Text = "Save to XML";
+            this.saveTargetToXML.UseVisualStyleBackColor = true;
+            this.saveTargetToXML.Click += new System.EventHandler(this.saveTargetToXML_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 510);
+            this.Controls.Add(this.saveTargetToXML);
+            this.Controls.Add(this.targetLoadWords_btn);
+            this.Controls.Add(this.targetLoad_btn);
+            this.Controls.Add(this.targetListLoad_txtBx);
             this.Controls.Add(this.removeWord_btn);
             this.Controls.Add(this.innerWords_lstbx);
             this.Controls.Add(this.button2);
@@ -243,6 +293,11 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListBox innerWords_lstbx;
         private System.Windows.Forms.Button removeWord_btn;
+        private System.Windows.Forms.TextBox targetListLoad_txtBx;
+        private System.Windows.Forms.Button targetLoad_btn;
+        private System.Windows.Forms.OpenFileDialog targetLoadFile_FD;
+        private System.Windows.Forms.Button targetLoadWords_btn;
+        private System.Windows.Forms.Button saveTargetToXML;
     }
 }
 
