@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Office.Interop.Word;
+
 
 namespace Dizruptor
 {
     class WorkWithWord
     {
-        Application wordFile = new Application();
+        
         Object missing = Type.Missing;
         Object fileName;
 
@@ -20,58 +20,59 @@ namespace Dizruptor
 
         public void OpenWordFile()
         {
-            wordFile.Documents.Open(ref fileName, ReadOnly: false);
+            
         }
 
         public bool FindString(string str)
         {
-            Find find = wordFile.Selection.Find;
-            find.Text = str;
+            return true;
+            //Find find = wordFile.Selection.Find;
+            //find.Text = str;
             //find.Replacement.Text = "два";
             //Object wrap = Word.WdFindWrap.wdFindContinue;
             //Object replace = Word.WdReplace.wdReplaceAll;
-            return find.Execute(FindText: Type.Missing,
-                        MatchCase: false,
-                        MatchWholeWord: false,
-                        MatchWildcards: false,
-                        MatchSoundsLike: missing,
-                        MatchAllWordForms: false,
-                        Forward: true,
-                        Wrap: missing,
-                        Format: false,
-                        ReplaceWith: missing, Replace: missing);
+            //return find.Execute(FindText: Type.Missing,
+            //            MatchCase: false,
+            //            MatchWholeWord: false,
+            //            MatchWildcards: false,
+            //            MatchSoundsLike: missing,
+            //            MatchAllWordForms: false,
+            //            Forward: true,
+            //            Wrap: missing,
+            //            Format: false,
+            //            ReplaceWith: missing, Replace: missing);
 
         }
 
         public List<int> FindPage(string str)
         {
             List<int> res = new List<int>();
-            Range range = wordFile.ActiveDocument.Content;
-            Find find = range.Find;
-            find.Text = "один";
-            find.ClearFormatting();
-            range.Find.Execute(
-                    ref missing, ref missing, ref missing, ref missing, ref missing,
-                    ref missing, ref missing, ref missing, ref missing, ref missing,
-                    ref missing, ref missing, ref missing, ref missing, ref missing);
+            //Range range = wordFile.ActiveDocument.Content;
+            //Find find = range.Find;
+            //find.Text = "один";
+            //find.ClearFormatting();
+            //range.Find.Execute(
+            //        ref missing, ref missing, ref missing, ref missing, ref missing,
+            //        ref missing, ref missing, ref missing, ref missing, ref missing,
+            //        ref missing, ref missing, ref missing, ref missing, ref missing);
 
 
-            while (range.Find.Found)
-            {
-                //Get selected index.
-                // Do as you please with range...
-                res.Add( (int)range.get_Information(WdInformation.wdActiveEndPageNumber));
+            //while (range.Find.Found)
+            //{
+            //    //Get selected index.
+            //    // Do as you please with range...
+            //    //res.Add( (int)range.get_Information(WdInformation.wdActiveEndPageNumber));
                 
-                //Positions:  range.Start... range.End
+            //    //Positions:  range.Start... range.End
                 
                 
                 
-                //search again
-                range.Find.Execute(
-                   ref missing, ref missing, ref missing, ref missing, ref missing,
-                   ref missing, ref missing, ref missing, ref missing, ref missing,
-                   ref missing, ref missing, ref missing, ref missing, ref missing);
-            }
+            //    //search again
+            //    range.Find.Execute(
+            //       ref missing, ref missing, ref missing, ref missing, ref missing,
+            //       ref missing, ref missing, ref missing, ref missing, ref missing,
+            //       ref missing, ref missing, ref missing, ref missing, ref missing);
+            //}
 
 
             return res;
@@ -79,8 +80,8 @@ namespace Dizruptor
 
         public void CloseAndQuit()
         {
-            wordFile.ActiveDocument.Close();
-            wordFile.Quit();      
+            //wordFile.ActiveDocument.Close();
+            //wordFile.Quit();      
         }
 
         

@@ -14,7 +14,7 @@ namespace Dizruptor
 {
     public partial class Form1 : Form
     {
-        Words w =Words.GetInstance();
+        Words w = Words.GetInstance();
         WorkWithPDF PDF = new WorkWithPDF();
         List<string> targetWordsChose = new List<string>();
 
@@ -22,7 +22,6 @@ namespace Dizruptor
         {
             InitializeComponent();
             LoadBadWords();
-
         }
         void LoadBadWords()
         {
@@ -31,24 +30,24 @@ namespace Dizruptor
                 badWords_lstBx.Items.Add(item);
             }
         }
-        
+
         private void start_btn_Click(object sender, EventArgs e)
         {
             allWords_lstbx.Items.Clear();
-           
+
             w.GetAllWordsFromPDF(pathToBook_txtBx.Text);
 
             var pdfWords = w.GetWordsFreq();
 
             foreach (var item in pdfWords)
             {
-                allWords_lstbx.Items.Add(item.Key+" ------>>> "+item.Value);
+                allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
             }
         }
 
         private void ToBadWords_btn_Click(object sender, EventArgs e)
         {
-            string[] temp =  allWords_lstbx.SelectedItem.ToString().Split(' ');
+            string[] temp = allWords_lstbx.SelectedItem.ToString().Split(' ');
             badWords_lstBx.Items.Add(temp[0]);
             w.AddBadWord(temp[0]);
         }
@@ -62,20 +61,20 @@ namespace Dizruptor
         private void findFile_btn_Click(object sender, EventArgs e)
         {
             book_fd.ShowDialog();
-            pathToBook_txtBx.Text= book_fd.FileName;
-           
+            pathToBook_txtBx.Text = book_fd.FileName;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
-       
+
 
         private void ToTarget_btn_Click(object sender, EventArgs e)
         {
-            string s= allWords_lstbx.SelectedItem.ToString();
+            string s = allWords_lstbx.SelectedItem.ToString();
             string[] v = s.Split(' ');
             if (TargetWords_lstBx.SelectedItem == null)
             {
@@ -100,23 +99,23 @@ namespace Dizruptor
         private void combineWords_btn_Click(object sender, EventArgs e)
         {
             string test = "";
-            
+
             test += TargetWords_lstBx.SelectedItems[0].ToString() + Environment.NewLine;
 
-            
-            
+
+
             for (int i = 1; i < TargetWords_lstBx.SelectedItems.Count; i++)
             {
                 foreach (var item in w.targetList[TargetWords_lstBx.SelectedItems[i].ToString()])
                 {
                     w.targetList[TargetWords_lstBx.SelectedItems[0].ToString()].Add(item);
                 }
-                
+
             }
 
             for (int i = 1; i < TargetWords_lstBx.SelectedItems.Count; i++)
             {
-                 w.targetList.Remove(TargetWords_lstBx.SelectedItems[i].ToString());
+                w.targetList.Remove(TargetWords_lstBx.SelectedItems[i].ToString());
             }
 
             w.targetList[TargetWords_lstBx.SelectedItems[0].ToString()].Distinct();
@@ -143,8 +142,8 @@ namespace Dizruptor
                 foreach (var word in item.Value)
                 {
                     innerWords += word + " ";
-                    pages.AddRange( w.allWordsDic[word]);
-                    
+                    pages.AddRange(w.allWordsDic[word]);
+
                 }
 
                 pages.Sort();
@@ -199,7 +198,7 @@ namespace Dizruptor
 
         private void removeWord_btn_Click(object sender, EventArgs e)
         {
-            if (innerWords_lstbx.SelectedItem==null)
+            if (innerWords_lstbx.SelectedItem == null)
                 MessageBox.Show("Выберите слово для удаления!");
             else
             {
@@ -251,19 +250,39 @@ namespace Dizruptor
         private void targetLoad_btn_Click(object sender, EventArgs e)
         {
             targetLoadFile_FD.ShowDialog();
-            targetListLoad_txtBx.Text = book_fd.FileName;
+            targetListLoad_txtBx.Text = targetLoadFile_FD.FileName;
         }
 
         private void targetLoadWords_btn_Click(object sender, EventArgs e)
         {
-            if ( targetListLoad_txtBx.Text.EndsWith("xml"))
+            if (targetListLoad_txtBx.Text.EndsWith("xml"))
             {
-                XmlSerializer formatter = new XmlSerializer(typeof(SortedList<string, List<string>>));
+                XmlSerializer formatter = new XmlSerializer(typeof(TargetWordsTemp[]),
+                                 new XmlRootAttribute() { ElementName = "TargetItems" });
                 using (FileStream fs = new FileStream(targetListLoad_txtBx.Text, FileMode.OpenOrCreate))
+                {
+                    var t = (TargetWordsTemp[])formatter.Deserialize(fs);
+                    w.targetList.Clear();
+                    foreach (var item in t)
                     {
-                        
-                        w.targetList= (SortedList<string, List<string>>)formatter.Deserialize(fs);
+                        w.targetList.Add(item.name, item.val);
                     }
+                }
+                RefreshTargetList();
+            }
+            else if (targetListLoad_txtBx.Text.EndsWith("txt"))
+            {
+                string line;
+                w.targetList.Clear();
+                using (StreamReader file = new StreamReader(targetListLoad_txtBx.Text))
+                {
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        w.targetList.Add(line, new List<string>());
+                        w.targetList[line].Add(line);
+                    }
+                }
+                RefreshTargetList();
             }
         }
 
@@ -274,16 +293,10 @@ namespace Dizruptor
 
             using (FileStream fs = new FileStream("targetWords.xml", FileMode.OpenOrCreate))
             {
-                //foreach (var item in w.targetList)
-                //{
-                    //TargetWordsTemp t = new TargetWordsTemp(item.Key, item.Value);
-                    //formatter.Serialize(fs, t);
-                    formatter.Serialize(fs, w.targetList.Select(kv => new TargetWordsTemp(kv.Key,kv.Value)).ToArray());
-                //}
-                
+                formatter.Serialize(fs, w.targetList.Select(kv => new TargetWordsTemp(kv.Key, kv.Value)).ToArray());
             }
 
-            
+
         }
     }
 }
