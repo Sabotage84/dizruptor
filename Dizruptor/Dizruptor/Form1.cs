@@ -94,6 +94,18 @@ namespace Dizruptor
                 w.targetList[TargetWords_lstBx.SelectedItem.ToString()].Add(v[0]);
             }
 
+            w.WordsWithOUTBad.Remove(v[0]);
+            RefreshAllWordsLSTBX();
+
+        }
+
+        private void RefreshAllWordsLSTBX()
+        {
+            allWords_lstbx.Items.Clear();
+            foreach (var item in w.WordsWithOUTBad)
+            {
+                allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
+            }
         }
 
         private void combineWords_btn_Click(object sender, EventArgs e)

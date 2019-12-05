@@ -11,6 +11,7 @@ namespace Dizruptor
     {
         private static readonly Words instance = new Words();
         public SortedDictionary<string, List<int>> allWordsDic;
+        public SortedDictionary<string, int> WordsWithOUTBad = new SortedDictionary<string, int>();
         public SortedList<string, int> badWords= new SortedList<string, int>();
 	    public SortedList<string, List<string>> targetList= new SortedList<string, List<string>>();
 
@@ -38,7 +39,10 @@ namespace Dizruptor
             foreach (var item in allWordsDic)
             {
                 if (!badWords.ContainsKey(item.Key))
+                {
+                    WordsWithOUTBad.Add(item.Key, item.Value.Count);
                     res.Add(item.Key, item.Value.Count);
+                }
             }
 
             return res;
