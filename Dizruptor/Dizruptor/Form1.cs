@@ -17,7 +17,8 @@ namespace Dizruptor
         Words w = Words.GetInstance();
         WorkWithPDF PDF = new WorkWithPDF();
         List<string> targetWordsChose = new List<string>();
-
+        //IOrderedEnumerable<KeyValuePair<string, int>> tempList;
+        IEnumerable<KeyValuePair<string, int>> tempList;
         public Form1()
         {
             InitializeComponent();
@@ -114,7 +115,8 @@ namespace Dizruptor
         private void RefreshAllWordsLSTBX()
         {
             allWords_lstbx.Items.Clear();
-            foreach (var item in w.WordsWithOUTBad)
+            tempList = w.WordsWithOUTBad.OrderBy(t => t.Key);
+            foreach (var item in tempList)
             {
                 allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
             }
@@ -336,9 +338,10 @@ namespace Dizruptor
 
         private void allWordsSortByCount_rdBtn_Click(object sender, EventArgs e)
         {
-            var v = w.WordsWithOUTBad.OrderBy(t => t.Value);
+            
+            tempList = w.WordsWithOUTBad.OrderBy(t => t.Value);
             allWords_lstbx.Items.Clear();
-            foreach (var item in v)
+            foreach (var item in tempList)
             {
                 allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
             }
@@ -351,9 +354,9 @@ namespace Dizruptor
 
         private void allWordsSortByLength_rdBtn_Click(object sender, EventArgs e)
         {
-            var v = w.WordsWithOUTBad.OrderBy(t => t.Key.Length);
+            tempList = w.WordsWithOUTBad.OrderBy(t => t.Key.Length);
             allWords_lstbx.Items.Clear();
-            foreach (var item in v)
+            foreach (var item in tempList)
             {
                 allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
             }
@@ -387,6 +390,30 @@ namespace Dizruptor
             {
                 FromAllToSimple();
                 e.Handled = true;
+            }
+        }
+
+        private void withOutCuntOne_chkBx_CheckedChanged(object sender, EventArgs e)
+        {
+            if (withOutCuntOne_chkBx.Checked)
+            {
+                allWords_lstbx.Items.Clear();
+                tempList = tempList.Where(t=>t.Value>1);
+                
+                foreach (var item in tempList)
+                {
+                    allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
+                }
+            }
+            else
+            {
+                allWords_lstbx.Items.Clear();
+                tempList = tempList.Select(t=>t);
+
+                foreach (var item in tempList)
+                {
+                    allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
+                }
             }
         }
     }

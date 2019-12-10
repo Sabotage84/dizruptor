@@ -55,6 +55,7 @@
             this.allWordsSortByName_rdBtn = new System.Windows.Forms.RadioButton();
             this.pageSatart_nmUD = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
+            this.withOutCuntOne_chkBx = new System.Windows.Forms.CheckBox();
             this.allWords_grpBx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pageSatart_nmUD)).BeginInit();
             this.SuspendLayout();
@@ -62,17 +63,20 @@
             // allWords_lstbx
             // 
             this.allWords_lstbx.FormattingEnabled = true;
-            this.allWords_lstbx.Location = new System.Drawing.Point(12, 106);
+            this.allWords_lstbx.ItemHeight = 16;
+            this.allWords_lstbx.Location = new System.Drawing.Point(16, 146);
+            this.allWords_lstbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.allWords_lstbx.Name = "allWords_lstbx";
-            this.allWords_lstbx.Size = new System.Drawing.Size(248, 368);
+            this.allWords_lstbx.Size = new System.Drawing.Size(329, 436);
             this.allWords_lstbx.TabIndex = 0;
             this.allWords_lstbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.allWords_lstbx_KeyDown);
             // 
             // start_btn
             // 
-            this.start_btn.Location = new System.Drawing.Point(12, 479);
+            this.start_btn.Location = new System.Drawing.Point(16, 590);
+            this.start_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.start_btn.Name = "start_btn";
-            this.start_btn.Size = new System.Drawing.Size(75, 23);
+            this.start_btn.Size = new System.Drawing.Size(100, 28);
             this.start_btn.TabIndex = 1;
             this.start_btn.Text = "Scan file";
             this.start_btn.UseVisualStyleBackColor = true;
@@ -80,9 +84,10 @@
             // 
             // ToBadWords_btn
             // 
-            this.ToBadWords_btn.Location = new System.Drawing.Point(266, 168);
+            this.ToBadWords_btn.Location = new System.Drawing.Point(355, 207);
+            this.ToBadWords_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ToBadWords_btn.Name = "ToBadWords_btn";
-            this.ToBadWords_btn.Size = new System.Drawing.Size(75, 23);
+            this.ToBadWords_btn.Size = new System.Drawing.Size(100, 28);
             this.ToBadWords_btn.TabIndex = 2;
             this.ToBadWords_btn.TabStop = false;
             this.ToBadWords_btn.Text = "To simle";
@@ -92,9 +97,11 @@
             // badWords_lstBx
             // 
             this.badWords_lstBx.FormattingEnabled = true;
-            this.badWords_lstBx.Location = new System.Drawing.Point(371, 70);
+            this.badWords_lstBx.ItemHeight = 16;
+            this.badWords_lstBx.Location = new System.Drawing.Point(495, 86);
+            this.badWords_lstBx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.badWords_lstBx.Name = "badWords_lstBx";
-            this.badWords_lstBx.Size = new System.Drawing.Size(163, 368);
+            this.badWords_lstBx.Size = new System.Drawing.Size(216, 452);
             this.badWords_lstBx.TabIndex = 3;
             // 
             // book_fd
@@ -103,9 +110,10 @@
             // 
             // findFile_btn
             // 
-            this.findFile_btn.Location = new System.Drawing.Point(310, 19);
+            this.findFile_btn.Location = new System.Drawing.Point(413, 23);
+            this.findFile_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.findFile_btn.Name = "findFile_btn";
-            this.findFile_btn.Size = new System.Drawing.Size(25, 20);
+            this.findFile_btn.Size = new System.Drawing.Size(33, 25);
             this.findFile_btn.TabIndex = 5;
             this.findFile_btn.Text = "...";
             this.findFile_btn.UseVisualStyleBackColor = true;
@@ -113,35 +121,40 @@
             // 
             // pathToBook_txtBx
             // 
-            this.pathToBook_txtBx.Location = new System.Drawing.Point(12, 19);
+            this.pathToBook_txtBx.Location = new System.Drawing.Point(16, 23);
+            this.pathToBook_txtBx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pathToBook_txtBx.Name = "pathToBook_txtBx";
-            this.pathToBook_txtBx.Size = new System.Drawing.Size(292, 20);
+            this.pathToBook_txtBx.Size = new System.Drawing.Size(388, 22);
             this.pathToBook_txtBx.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(374, 51);
+            this.label2.Location = new System.Drawing.Point(499, 63);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.Size = new System.Drawing.Size(91, 17);
             this.label2.TabIndex = 11;
             this.label2.Text = "Simple words";
             // 
             // TargetWords_lstBx
             // 
             this.TargetWords_lstBx.FormattingEnabled = true;
-            this.TargetWords_lstBx.Location = new System.Drawing.Point(562, 70);
+            this.TargetWords_lstBx.ItemHeight = 16;
+            this.TargetWords_lstBx.Location = new System.Drawing.Point(749, 86);
+            this.TargetWords_lstBx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TargetWords_lstBx.Name = "TargetWords_lstBx";
             this.TargetWords_lstBx.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.TargetWords_lstBx.Size = new System.Drawing.Size(172, 368);
+            this.TargetWords_lstBx.Size = new System.Drawing.Size(228, 452);
             this.TargetWords_lstBx.TabIndex = 12;
             this.TargetWords_lstBx.SelectedIndexChanged += new System.EventHandler(this.TargetWords_lstBx_SelectedIndexChanged);
             // 
             // ToTarget_btn
             // 
-            this.ToTarget_btn.Location = new System.Drawing.Point(266, 249);
+            this.ToTarget_btn.Location = new System.Drawing.Point(355, 306);
+            this.ToTarget_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ToTarget_btn.Name = "ToTarget_btn";
-            this.ToTarget_btn.Size = new System.Drawing.Size(75, 23);
+            this.ToTarget_btn.Size = new System.Drawing.Size(100, 28);
             this.ToTarget_btn.TabIndex = 13;
             this.ToTarget_btn.Text = "To target";
             this.ToTarget_btn.UseVisualStyleBackColor = true;
@@ -150,9 +163,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(562, 51);
+            this.label3.Location = new System.Drawing.Point(749, 63);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 13);
+            this.label3.Size = new System.Drawing.Size(91, 17);
             this.label3.TabIndex = 14;
             this.label3.Text = "Target words";
             // 
@@ -163,9 +177,10 @@
             // combineWords_btn
             // 
             this.combineWords_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.combineWords_btn.Location = new System.Drawing.Point(740, 293);
+            this.combineWords_btn.Location = new System.Drawing.Point(987, 361);
+            this.combineWords_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.combineWords_btn.Name = "combineWords_btn";
-            this.combineWords_btn.Size = new System.Drawing.Size(36, 29);
+            this.combineWords_btn.Size = new System.Drawing.Size(48, 36);
             this.combineWords_btn.TabIndex = 15;
             this.combineWords_btn.Text = "+";
             this.combineWords_btn.UseCompatibleTextRendering = true;
@@ -174,9 +189,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(371, 453);
+            this.button2.Location = new System.Drawing.Point(495, 558);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(163, 36);
+            this.button2.Size = new System.Drawing.Size(217, 44);
             this.button2.TabIndex = 16;
             this.button2.Text = "Make dictionary";
             this.button2.UseVisualStyleBackColor = true;
@@ -185,16 +201,19 @@
             // innerWords_lstbx
             // 
             this.innerWords_lstbx.FormattingEnabled = true;
-            this.innerWords_lstbx.Location = new System.Drawing.Point(740, 70);
+            this.innerWords_lstbx.ItemHeight = 16;
+            this.innerWords_lstbx.Location = new System.Drawing.Point(987, 86);
+            this.innerWords_lstbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.innerWords_lstbx.Name = "innerWords_lstbx";
-            this.innerWords_lstbx.Size = new System.Drawing.Size(120, 134);
+            this.innerWords_lstbx.Size = new System.Drawing.Size(159, 164);
             this.innerWords_lstbx.TabIndex = 17;
             // 
             // removeWord_btn
             // 
-            this.removeWord_btn.Location = new System.Drawing.Point(774, 210);
+            this.removeWord_btn.Location = new System.Drawing.Point(1032, 258);
+            this.removeWord_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.removeWord_btn.Name = "removeWord_btn";
-            this.removeWord_btn.Size = new System.Drawing.Size(86, 23);
+            this.removeWord_btn.Size = new System.Drawing.Size(115, 28);
             this.removeWord_btn.TabIndex = 18;
             this.removeWord_btn.Text = "Remove word";
             this.removeWord_btn.UseVisualStyleBackColor = true;
@@ -202,16 +221,18 @@
             // 
             // targetListLoad_txtBx
             // 
-            this.targetListLoad_txtBx.Location = new System.Drawing.Point(562, 19);
+            this.targetListLoad_txtBx.Location = new System.Drawing.Point(749, 23);
+            this.targetListLoad_txtBx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.targetListLoad_txtBx.Name = "targetListLoad_txtBx";
-            this.targetListLoad_txtBx.Size = new System.Drawing.Size(239, 20);
+            this.targetListLoad_txtBx.Size = new System.Drawing.Size(317, 22);
             this.targetListLoad_txtBx.TabIndex = 19;
             // 
             // targetLoad_btn
             // 
-            this.targetLoad_btn.Location = new System.Drawing.Point(798, 18);
+            this.targetLoad_btn.Location = new System.Drawing.Point(1064, 22);
+            this.targetLoad_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.targetLoad_btn.Name = "targetLoad_btn";
-            this.targetLoad_btn.Size = new System.Drawing.Size(27, 23);
+            this.targetLoad_btn.Size = new System.Drawing.Size(36, 28);
             this.targetLoad_btn.TabIndex = 20;
             this.targetLoad_btn.Text = "...";
             this.targetLoad_btn.UseVisualStyleBackColor = true;
@@ -223,9 +244,10 @@
             // 
             // targetLoadWords_btn
             // 
-            this.targetLoadWords_btn.Location = new System.Drawing.Point(831, 19);
+            this.targetLoadWords_btn.Location = new System.Drawing.Point(1108, 23);
+            this.targetLoadWords_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.targetLoadWords_btn.Name = "targetLoadWords_btn";
-            this.targetLoadWords_btn.Size = new System.Drawing.Size(75, 23);
+            this.targetLoadWords_btn.Size = new System.Drawing.Size(100, 28);
             this.targetLoadWords_btn.TabIndex = 21;
             this.targetLoadWords_btn.Text = "Load target";
             this.targetLoadWords_btn.UseVisualStyleBackColor = true;
@@ -233,9 +255,10 @@
             // 
             // saveTargetToXML
             // 
-            this.saveTargetToXML.Location = new System.Drawing.Point(655, 444);
+            this.saveTargetToXML.Location = new System.Drawing.Point(873, 546);
+            this.saveTargetToXML.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.saveTargetToXML.Name = "saveTargetToXML";
-            this.saveTargetToXML.Size = new System.Drawing.Size(79, 23);
+            this.saveTargetToXML.Size = new System.Drawing.Size(105, 28);
             this.saveTargetToXML.TabIndex = 22;
             this.saveTargetToXML.Text = "Save to XML";
             this.saveTargetToXML.UseVisualStyleBackColor = true;
@@ -243,12 +266,15 @@
             // 
             // allWords_grpBx
             // 
+            this.allWords_grpBx.Controls.Add(this.withOutCuntOne_chkBx);
             this.allWords_grpBx.Controls.Add(this.allWordsSortByCount_rdBtn);
             this.allWords_grpBx.Controls.Add(this.allWordsSortByLength_rdBtn);
             this.allWords_grpBx.Controls.Add(this.allWordsSortByName_rdBtn);
-            this.allWords_grpBx.Location = new System.Drawing.Point(12, 45);
+            this.allWords_grpBx.Location = new System.Drawing.Point(16, 55);
+            this.allWords_grpBx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.allWords_grpBx.Name = "allWords_grpBx";
-            this.allWords_grpBx.Size = new System.Drawing.Size(248, 55);
+            this.allWords_grpBx.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.allWords_grpBx.Size = new System.Drawing.Size(331, 89);
             this.allWords_grpBx.TabIndex = 23;
             this.allWords_grpBx.TabStop = false;
             this.allWords_grpBx.Text = "All words sort by";
@@ -256,9 +282,10 @@
             // allWordsSortByCount_rdBtn
             // 
             this.allWordsSortByCount_rdBtn.AutoSize = true;
-            this.allWordsSortByCount_rdBtn.Location = new System.Drawing.Point(123, 23);
+            this.allWordsSortByCount_rdBtn.Location = new System.Drawing.Point(164, 28);
+            this.allWordsSortByCount_rdBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.allWordsSortByCount_rdBtn.Name = "allWordsSortByCount_rdBtn";
-            this.allWordsSortByCount_rdBtn.Size = new System.Drawing.Size(52, 17);
+            this.allWordsSortByCount_rdBtn.Size = new System.Drawing.Size(64, 21);
             this.allWordsSortByCount_rdBtn.TabIndex = 2;
             this.allWordsSortByCount_rdBtn.Text = "count";
             this.allWordsSortByCount_rdBtn.UseVisualStyleBackColor = true;
@@ -268,9 +295,10 @@
             // allWordsSortByLength_rdBtn
             // 
             this.allWordsSortByLength_rdBtn.AutoSize = true;
-            this.allWordsSortByLength_rdBtn.Location = new System.Drawing.Point(63, 23);
+            this.allWordsSortByLength_rdBtn.Location = new System.Drawing.Point(84, 28);
+            this.allWordsSortByLength_rdBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.allWordsSortByLength_rdBtn.Name = "allWordsSortByLength_rdBtn";
-            this.allWordsSortByLength_rdBtn.Size = new System.Drawing.Size(54, 17);
+            this.allWordsSortByLength_rdBtn.Size = new System.Drawing.Size(68, 21);
             this.allWordsSortByLength_rdBtn.TabIndex = 1;
             this.allWordsSortByLength_rdBtn.Text = "length";
             this.allWordsSortByLength_rdBtn.UseVisualStyleBackColor = true;
@@ -281,9 +309,10 @@
             // 
             this.allWordsSortByName_rdBtn.AutoSize = true;
             this.allWordsSortByName_rdBtn.Checked = true;
-            this.allWordsSortByName_rdBtn.Location = new System.Drawing.Point(6, 23);
+            this.allWordsSortByName_rdBtn.Location = new System.Drawing.Point(8, 28);
+            this.allWordsSortByName_rdBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.allWordsSortByName_rdBtn.Name = "allWordsSortByName_rdBtn";
-            this.allWordsSortByName_rdBtn.Size = new System.Drawing.Size(51, 17);
+            this.allWordsSortByName_rdBtn.Size = new System.Drawing.Size(64, 21);
             this.allWordsSortByName_rdBtn.TabIndex = 0;
             this.allWordsSortByName_rdBtn.TabStop = true;
             this.allWordsSortByName_rdBtn.Text = "name";
@@ -292,25 +321,38 @@
             // 
             // pageSatart_nmUD
             // 
-            this.pageSatart_nmUD.Location = new System.Drawing.Point(744, 393);
+            this.pageSatart_nmUD.Location = new System.Drawing.Point(992, 484);
+            this.pageSatart_nmUD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pageSatart_nmUD.Name = "pageSatart_nmUD";
-            this.pageSatart_nmUD.Size = new System.Drawing.Size(45, 20);
+            this.pageSatart_nmUD.Size = new System.Drawing.Size(60, 22);
             this.pageSatart_nmUD.TabIndex = 24;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(740, 377);
+            this.label1.Location = new System.Drawing.Point(987, 464);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.Size = new System.Drawing.Size(66, 17);
             this.label1.TabIndex = 25;
             this.label1.Text = "Start with";
             // 
+            // withOutCuntOne_chkBx
+            // 
+            this.withOutCuntOne_chkBx.AutoSize = true;
+            this.withOutCuntOne_chkBx.Location = new System.Drawing.Point(8, 63);
+            this.withOutCuntOne_chkBx.Name = "withOutCuntOne_chkBx";
+            this.withOutCuntOne_chkBx.Size = new System.Drawing.Size(145, 21);
+            this.withOutCuntOne_chkBx.TabIndex = 3;
+            this.withOutCuntOne_chkBx.Text = "Without count one";
+            this.withOutCuntOne_chkBx.UseVisualStyleBackColor = true;
+            this.withOutCuntOne_chkBx.CheckedChanged += new System.EventHandler(this.withOutCuntOne_chkBx_CheckedChanged);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(926, 510);
+            this.ClientSize = new System.Drawing.Size(1235, 628);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pageSatart_nmUD);
             this.Controls.Add(this.allWords_grpBx);
@@ -332,6 +374,7 @@
             this.Controls.Add(this.ToBadWords_btn);
             this.Controls.Add(this.start_btn);
             this.Controls.Add(this.allWords_lstbx);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -374,6 +417,7 @@
         private System.Windows.Forms.RadioButton allWordsSortByName_rdBtn;
         private System.Windows.Forms.NumericUpDown pageSatart_nmUD;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox withOutCuntOne_chkBx;
     }
 }
 
