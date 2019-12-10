@@ -31,26 +31,17 @@ namespace Dizruptor
             allWordsDic = pdf.ExtractAllWordsFromPDF(pdfFileName);
         }
         
-        public SortedDictionary<string,int> GetWordsFreq()
+        public void GetWordsFreq()
         {
-
-
-            SortedDictionary<string, int> res = new SortedDictionary<string, int>();
             foreach (var item in allWordsDic)
             {
                 if (!badWords.ContainsKey(item.Key))
                 {
                     WordsWithOUTBad.Add(item.Key, item.Value.Count);
-                    res.Add(item.Key, item.Value.Count);
+                    
                 }
             }
-
-            return res;
         }
-
-
-        
-
         public static Words GetInstance()
         {
            

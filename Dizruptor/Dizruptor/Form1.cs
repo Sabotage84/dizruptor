@@ -37,9 +37,9 @@ namespace Dizruptor
 
             w.GetAllWordsFromPDF(pathToBook_txtBx.Text);
 
-            var pdfWords = w.GetWordsFreq();
+            w.GetWordsFreq();
 
-            foreach (var item in pdfWords)
+            foreach (var item in w.WordsWithOUTBad)
             {
                 allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
             }
@@ -309,6 +309,41 @@ namespace Dizruptor
             }
 
 
+        }
+
+        private void allWordsSortByCount_rdBtn_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void allWordsSortByName_rdBtn_Click(object sender, EventArgs e)
+        {
+            RefreshAllWordsLSTBX();
+        }
+
+        private void allWordsSortByCount_rdBtn_Click(object sender, EventArgs e)
+        {
+            var v = w.WordsWithOUTBad.OrderBy(t => t.Value);
+            allWords_lstbx.Items.Clear();
+            foreach (var item in v)
+            {
+                allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
+            }
+        }
+
+        private void allWordsSortByLength_rdBtn_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void allWordsSortByLength_rdBtn_Click(object sender, EventArgs e)
+        {
+            var v = w.WordsWithOUTBad.OrderBy(t => t.Key.Length);
+            allWords_lstbx.Items.Clear();
+            foreach (var item in v)
+            {
+                allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
+            }
         }
     }
 }

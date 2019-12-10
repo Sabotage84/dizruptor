@@ -35,7 +35,6 @@
             this.book_fd = new System.Windows.Forms.OpenFileDialog();
             this.findFile_btn = new System.Windows.Forms.Button();
             this.pathToBook_txtBx = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TargetWords_lstBx = new System.Windows.Forms.ListBox();
             this.ToTarget_btn = new System.Windows.Forms.Button();
@@ -50,19 +49,24 @@
             this.targetLoadFile_FD = new System.Windows.Forms.OpenFileDialog();
             this.targetLoadWords_btn = new System.Windows.Forms.Button();
             this.saveTargetToXML = new System.Windows.Forms.Button();
+            this.allWords_grpBx = new System.Windows.Forms.GroupBox();
+            this.allWordsSortByName_rdBtn = new System.Windows.Forms.RadioButton();
+            this.allWordsSortByLength_rdBtn = new System.Windows.Forms.RadioButton();
+            this.allWordsSortByCount_rdBtn = new System.Windows.Forms.RadioButton();
+            this.allWords_grpBx.SuspendLayout();
             this.SuspendLayout();
             // 
             // allWords_lstbx
             // 
             this.allWords_lstbx.FormattingEnabled = true;
-            this.allWords_lstbx.Location = new System.Drawing.Point(12, 70);
+            this.allWords_lstbx.Location = new System.Drawing.Point(12, 106);
             this.allWords_lstbx.Name = "allWords_lstbx";
-            this.allWords_lstbx.Size = new System.Drawing.Size(201, 368);
+            this.allWords_lstbx.Size = new System.Drawing.Size(248, 368);
             this.allWords_lstbx.TabIndex = 0;
             // 
             // start_btn
             // 
-            this.start_btn.Location = new System.Drawing.Point(12, 444);
+            this.start_btn.Location = new System.Drawing.Point(12, 479);
             this.start_btn.Name = "start_btn";
             this.start_btn.Size = new System.Drawing.Size(75, 23);
             this.start_btn.TabIndex = 1;
@@ -72,7 +76,7 @@
             // 
             // ToBadWords_btn
             // 
-            this.ToBadWords_btn.Location = new System.Drawing.Point(219, 168);
+            this.ToBadWords_btn.Location = new System.Drawing.Point(266, 168);
             this.ToBadWords_btn.Name = "ToBadWords_btn";
             this.ToBadWords_btn.Size = new System.Drawing.Size(75, 23);
             this.ToBadWords_btn.TabIndex = 2;
@@ -84,7 +88,7 @@
             // badWords_lstBx
             // 
             this.badWords_lstBx.FormattingEnabled = true;
-            this.badWords_lstBx.Location = new System.Drawing.Point(300, 70);
+            this.badWords_lstBx.Location = new System.Drawing.Point(371, 70);
             this.badWords_lstBx.Name = "badWords_lstBx";
             this.badWords_lstBx.Size = new System.Drawing.Size(163, 368);
             this.badWords_lstBx.TabIndex = 3;
@@ -110,19 +114,10 @@
             this.pathToBook_txtBx.Size = new System.Drawing.Size(292, 20);
             this.pathToBook_txtBx.TabIndex = 6;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "All words";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(300, 54);
+            this.label2.Location = new System.Drawing.Point(374, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 11;
@@ -131,7 +126,7 @@
             // TargetWords_lstBx
             // 
             this.TargetWords_lstBx.FormattingEnabled = true;
-            this.TargetWords_lstBx.Location = new System.Drawing.Point(491, 70);
+            this.TargetWords_lstBx.Location = new System.Drawing.Point(562, 70);
             this.TargetWords_lstBx.Name = "TargetWords_lstBx";
             this.TargetWords_lstBx.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.TargetWords_lstBx.Size = new System.Drawing.Size(172, 368);
@@ -140,7 +135,7 @@
             // 
             // ToTarget_btn
             // 
-            this.ToTarget_btn.Location = new System.Drawing.Point(219, 249);
+            this.ToTarget_btn.Location = new System.Drawing.Point(266, 249);
             this.ToTarget_btn.Name = "ToTarget_btn";
             this.ToTarget_btn.Size = new System.Drawing.Size(75, 23);
             this.ToTarget_btn.TabIndex = 13;
@@ -151,7 +146,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(491, 51);
+            this.label3.Location = new System.Drawing.Point(562, 51);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 14;
@@ -164,7 +159,7 @@
             // combineWords_btn
             // 
             this.combineWords_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.combineWords_btn.Location = new System.Drawing.Point(669, 293);
+            this.combineWords_btn.Location = new System.Drawing.Point(740, 293);
             this.combineWords_btn.Name = "combineWords_btn";
             this.combineWords_btn.Size = new System.Drawing.Size(36, 29);
             this.combineWords_btn.TabIndex = 15;
@@ -175,7 +170,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(300, 453);
+            this.button2.Location = new System.Drawing.Point(371, 453);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(163, 36);
             this.button2.TabIndex = 16;
@@ -186,14 +181,14 @@
             // innerWords_lstbx
             // 
             this.innerWords_lstbx.FormattingEnabled = true;
-            this.innerWords_lstbx.Location = new System.Drawing.Point(669, 70);
+            this.innerWords_lstbx.Location = new System.Drawing.Point(740, 70);
             this.innerWords_lstbx.Name = "innerWords_lstbx";
             this.innerWords_lstbx.Size = new System.Drawing.Size(120, 134);
             this.innerWords_lstbx.TabIndex = 17;
             // 
             // removeWord_btn
             // 
-            this.removeWord_btn.Location = new System.Drawing.Point(703, 210);
+            this.removeWord_btn.Location = new System.Drawing.Point(774, 210);
             this.removeWord_btn.Name = "removeWord_btn";
             this.removeWord_btn.Size = new System.Drawing.Size(86, 23);
             this.removeWord_btn.TabIndex = 18;
@@ -203,14 +198,14 @@
             // 
             // targetListLoad_txtBx
             // 
-            this.targetListLoad_txtBx.Location = new System.Drawing.Point(491, 19);
+            this.targetListLoad_txtBx.Location = new System.Drawing.Point(562, 19);
             this.targetListLoad_txtBx.Name = "targetListLoad_txtBx";
             this.targetListLoad_txtBx.Size = new System.Drawing.Size(239, 20);
             this.targetListLoad_txtBx.TabIndex = 19;
             // 
             // targetLoad_btn
             // 
-            this.targetLoad_btn.Location = new System.Drawing.Point(727, 18);
+            this.targetLoad_btn.Location = new System.Drawing.Point(798, 18);
             this.targetLoad_btn.Name = "targetLoad_btn";
             this.targetLoad_btn.Size = new System.Drawing.Size(27, 23);
             this.targetLoad_btn.TabIndex = 20;
@@ -224,7 +219,7 @@
             // 
             // targetLoadWords_btn
             // 
-            this.targetLoadWords_btn.Location = new System.Drawing.Point(760, 19);
+            this.targetLoadWords_btn.Location = new System.Drawing.Point(831, 19);
             this.targetLoadWords_btn.Name = "targetLoadWords_btn";
             this.targetLoadWords_btn.Size = new System.Drawing.Size(75, 23);
             this.targetLoadWords_btn.TabIndex = 21;
@@ -234,7 +229,7 @@
             // 
             // saveTargetToXML
             // 
-            this.saveTargetToXML.Location = new System.Drawing.Point(584, 444);
+            this.saveTargetToXML.Location = new System.Drawing.Point(655, 444);
             this.saveTargetToXML.Name = "saveTargetToXML";
             this.saveTargetToXML.Size = new System.Drawing.Size(79, 23);
             this.saveTargetToXML.TabIndex = 22;
@@ -242,11 +237,61 @@
             this.saveTargetToXML.UseVisualStyleBackColor = true;
             this.saveTargetToXML.Click += new System.EventHandler(this.saveTargetToXML_Click);
             // 
+            // allWords_grpBx
+            // 
+            this.allWords_grpBx.Controls.Add(this.allWordsSortByCount_rdBtn);
+            this.allWords_grpBx.Controls.Add(this.allWordsSortByLength_rdBtn);
+            this.allWords_grpBx.Controls.Add(this.allWordsSortByName_rdBtn);
+            this.allWords_grpBx.Location = new System.Drawing.Point(12, 45);
+            this.allWords_grpBx.Name = "allWords_grpBx";
+            this.allWords_grpBx.Size = new System.Drawing.Size(248, 55);
+            this.allWords_grpBx.TabIndex = 23;
+            this.allWords_grpBx.TabStop = false;
+            this.allWords_grpBx.Text = "All words sort by";
+            // 
+            // allWordsSortByName_rdBtn
+            // 
+            this.allWordsSortByName_rdBtn.AutoSize = true;
+            this.allWordsSortByName_rdBtn.Checked = true;
+            this.allWordsSortByName_rdBtn.Location = new System.Drawing.Point(6, 23);
+            this.allWordsSortByName_rdBtn.Name = "allWordsSortByName_rdBtn";
+            this.allWordsSortByName_rdBtn.Size = new System.Drawing.Size(51, 17);
+            this.allWordsSortByName_rdBtn.TabIndex = 0;
+            this.allWordsSortByName_rdBtn.TabStop = true;
+            this.allWordsSortByName_rdBtn.Text = "name";
+            this.allWordsSortByName_rdBtn.UseVisualStyleBackColor = true;
+            this.allWordsSortByName_rdBtn.Click += new System.EventHandler(this.allWordsSortByName_rdBtn_Click);
+            // 
+            // allWordsSortByLength_rdBtn
+            // 
+            this.allWordsSortByLength_rdBtn.AutoSize = true;
+            this.allWordsSortByLength_rdBtn.Location = new System.Drawing.Point(63, 23);
+            this.allWordsSortByLength_rdBtn.Name = "allWordsSortByLength_rdBtn";
+            this.allWordsSortByLength_rdBtn.Size = new System.Drawing.Size(54, 17);
+            this.allWordsSortByLength_rdBtn.TabIndex = 1;
+            this.allWordsSortByLength_rdBtn.Text = "length";
+            this.allWordsSortByLength_rdBtn.UseVisualStyleBackColor = true;
+            this.allWordsSortByLength_rdBtn.CheckedChanged += new System.EventHandler(this.allWordsSortByLength_rdBtn_CheckedChanged);
+            this.allWordsSortByLength_rdBtn.Click += new System.EventHandler(this.allWordsSortByLength_rdBtn_Click);
+            // 
+            // allWordsSortByCount_rdBtn
+            // 
+            this.allWordsSortByCount_rdBtn.AutoSize = true;
+            this.allWordsSortByCount_rdBtn.Location = new System.Drawing.Point(123, 23);
+            this.allWordsSortByCount_rdBtn.Name = "allWordsSortByCount_rdBtn";
+            this.allWordsSortByCount_rdBtn.Size = new System.Drawing.Size(52, 17);
+            this.allWordsSortByCount_rdBtn.TabIndex = 2;
+            this.allWordsSortByCount_rdBtn.Text = "count";
+            this.allWordsSortByCount_rdBtn.UseVisualStyleBackColor = true;
+            this.allWordsSortByCount_rdBtn.CheckedChanged += new System.EventHandler(this.allWordsSortByCount_rdBtn_CheckedChanged);
+            this.allWordsSortByCount_rdBtn.Click += new System.EventHandler(this.allWordsSortByCount_rdBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(862, 510);
+            this.ClientSize = new System.Drawing.Size(926, 510);
+            this.Controls.Add(this.allWords_grpBx);
             this.Controls.Add(this.saveTargetToXML);
             this.Controls.Add(this.targetLoadWords_btn);
             this.Controls.Add(this.targetLoad_btn);
@@ -259,7 +304,6 @@
             this.Controls.Add(this.ToTarget_btn);
             this.Controls.Add(this.TargetWords_lstBx);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pathToBook_txtBx);
             this.Controls.Add(this.findFile_btn);
             this.Controls.Add(this.badWords_lstBx);
@@ -269,6 +313,8 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.allWords_grpBx.ResumeLayout(false);
+            this.allWords_grpBx.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,7 +329,6 @@
         private System.Windows.Forms.OpenFileDialog book_fd;
         private System.Windows.Forms.Button findFile_btn;
         private System.Windows.Forms.TextBox pathToBook_txtBx;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox TargetWords_lstBx;
         private System.Windows.Forms.Button ToTarget_btn;
@@ -298,6 +343,10 @@
         private System.Windows.Forms.OpenFileDialog targetLoadFile_FD;
         private System.Windows.Forms.Button targetLoadWords_btn;
         private System.Windows.Forms.Button saveTargetToXML;
+        private System.Windows.Forms.GroupBox allWords_grpBx;
+        private System.Windows.Forms.RadioButton allWordsSortByCount_rdBtn;
+        private System.Windows.Forms.RadioButton allWordsSortByLength_rdBtn;
+        private System.Windows.Forms.RadioButton allWordsSortByName_rdBtn;
     }
 }
 
