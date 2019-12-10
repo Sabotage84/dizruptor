@@ -50,10 +50,13 @@
             this.targetLoadWords_btn = new System.Windows.Forms.Button();
             this.saveTargetToXML = new System.Windows.Forms.Button();
             this.allWords_grpBx = new System.Windows.Forms.GroupBox();
-            this.allWordsSortByName_rdBtn = new System.Windows.Forms.RadioButton();
-            this.allWordsSortByLength_rdBtn = new System.Windows.Forms.RadioButton();
             this.allWordsSortByCount_rdBtn = new System.Windows.Forms.RadioButton();
+            this.allWordsSortByLength_rdBtn = new System.Windows.Forms.RadioButton();
+            this.allWordsSortByName_rdBtn = new System.Windows.Forms.RadioButton();
+            this.pageSatart_nmUD = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.allWords_grpBx.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pageSatart_nmUD)).BeginInit();
             this.SuspendLayout();
             // 
             // allWords_lstbx
@@ -249,18 +252,17 @@
             this.allWords_grpBx.TabStop = false;
             this.allWords_grpBx.Text = "All words sort by";
             // 
-            // allWordsSortByName_rdBtn
+            // allWordsSortByCount_rdBtn
             // 
-            this.allWordsSortByName_rdBtn.AutoSize = true;
-            this.allWordsSortByName_rdBtn.Checked = true;
-            this.allWordsSortByName_rdBtn.Location = new System.Drawing.Point(6, 23);
-            this.allWordsSortByName_rdBtn.Name = "allWordsSortByName_rdBtn";
-            this.allWordsSortByName_rdBtn.Size = new System.Drawing.Size(51, 17);
-            this.allWordsSortByName_rdBtn.TabIndex = 0;
-            this.allWordsSortByName_rdBtn.TabStop = true;
-            this.allWordsSortByName_rdBtn.Text = "name";
-            this.allWordsSortByName_rdBtn.UseVisualStyleBackColor = true;
-            this.allWordsSortByName_rdBtn.Click += new System.EventHandler(this.allWordsSortByName_rdBtn_Click);
+            this.allWordsSortByCount_rdBtn.AutoSize = true;
+            this.allWordsSortByCount_rdBtn.Location = new System.Drawing.Point(123, 23);
+            this.allWordsSortByCount_rdBtn.Name = "allWordsSortByCount_rdBtn";
+            this.allWordsSortByCount_rdBtn.Size = new System.Drawing.Size(52, 17);
+            this.allWordsSortByCount_rdBtn.TabIndex = 2;
+            this.allWordsSortByCount_rdBtn.Text = "count";
+            this.allWordsSortByCount_rdBtn.UseVisualStyleBackColor = true;
+            this.allWordsSortByCount_rdBtn.CheckedChanged += new System.EventHandler(this.allWordsSortByCount_rdBtn_CheckedChanged);
+            this.allWordsSortByCount_rdBtn.Click += new System.EventHandler(this.allWordsSortByCount_rdBtn_Click);
             // 
             // allWordsSortByLength_rdBtn
             // 
@@ -274,23 +276,42 @@
             this.allWordsSortByLength_rdBtn.CheckedChanged += new System.EventHandler(this.allWordsSortByLength_rdBtn_CheckedChanged);
             this.allWordsSortByLength_rdBtn.Click += new System.EventHandler(this.allWordsSortByLength_rdBtn_Click);
             // 
-            // allWordsSortByCount_rdBtn
+            // allWordsSortByName_rdBtn
             // 
-            this.allWordsSortByCount_rdBtn.AutoSize = true;
-            this.allWordsSortByCount_rdBtn.Location = new System.Drawing.Point(123, 23);
-            this.allWordsSortByCount_rdBtn.Name = "allWordsSortByCount_rdBtn";
-            this.allWordsSortByCount_rdBtn.Size = new System.Drawing.Size(52, 17);
-            this.allWordsSortByCount_rdBtn.TabIndex = 2;
-            this.allWordsSortByCount_rdBtn.Text = "count";
-            this.allWordsSortByCount_rdBtn.UseVisualStyleBackColor = true;
-            this.allWordsSortByCount_rdBtn.CheckedChanged += new System.EventHandler(this.allWordsSortByCount_rdBtn_CheckedChanged);
-            this.allWordsSortByCount_rdBtn.Click += new System.EventHandler(this.allWordsSortByCount_rdBtn_Click);
+            this.allWordsSortByName_rdBtn.AutoSize = true;
+            this.allWordsSortByName_rdBtn.Checked = true;
+            this.allWordsSortByName_rdBtn.Location = new System.Drawing.Point(6, 23);
+            this.allWordsSortByName_rdBtn.Name = "allWordsSortByName_rdBtn";
+            this.allWordsSortByName_rdBtn.Size = new System.Drawing.Size(51, 17);
+            this.allWordsSortByName_rdBtn.TabIndex = 0;
+            this.allWordsSortByName_rdBtn.TabStop = true;
+            this.allWordsSortByName_rdBtn.Text = "name";
+            this.allWordsSortByName_rdBtn.UseVisualStyleBackColor = true;
+            this.allWordsSortByName_rdBtn.Click += new System.EventHandler(this.allWordsSortByName_rdBtn_Click);
+            // 
+            // pageSatart_nmUD
+            // 
+            this.pageSatart_nmUD.Location = new System.Drawing.Point(744, 393);
+            this.pageSatart_nmUD.Name = "pageSatart_nmUD";
+            this.pageSatart_nmUD.Size = new System.Drawing.Size(45, 20);
+            this.pageSatart_nmUD.TabIndex = 24;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(740, 377);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Start with";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 510);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pageSatart_nmUD);
             this.Controls.Add(this.allWords_grpBx);
             this.Controls.Add(this.saveTargetToXML);
             this.Controls.Add(this.targetLoadWords_btn);
@@ -315,6 +336,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.allWords_grpBx.ResumeLayout(false);
             this.allWords_grpBx.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pageSatart_nmUD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,6 +369,8 @@
         private System.Windows.Forms.RadioButton allWordsSortByCount_rdBtn;
         private System.Windows.Forms.RadioButton allWordsSortByLength_rdBtn;
         private System.Windows.Forms.RadioButton allWordsSortByName_rdBtn;
+        private System.Windows.Forms.NumericUpDown pageSatart_nmUD;
+        private System.Windows.Forms.Label label1;
     }
 }
 

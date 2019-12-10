@@ -159,6 +159,7 @@ namespace Dizruptor
                 }
 
                 pages.Sort();
+                pages = pages.Select(it => it+=(int)pageSatart_nmUD.Value).ToList();
 
                 for (int i = 0; i < pages.Count; i++)
                 {
