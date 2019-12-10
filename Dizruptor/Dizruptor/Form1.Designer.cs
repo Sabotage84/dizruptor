@@ -66,6 +66,7 @@
             this.allWords_lstbx.Name = "allWords_lstbx";
             this.allWords_lstbx.Size = new System.Drawing.Size(248, 368);
             this.allWords_lstbx.TabIndex = 0;
+            this.allWords_lstbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.allWords_lstbx_KeyDown);
             // 
             // start_btn
             // 
@@ -334,6 +335,8 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.allWords_grpBx.ResumeLayout(false);
             this.allWords_grpBx.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pageSatart_nmUD)).EndInit();

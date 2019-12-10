@@ -47,9 +47,16 @@ namespace Dizruptor
 
         private void ToBadWords_btn_Click(object sender, EventArgs e)
         {
+            FromAllToSimple();
+        }
+
+        private void FromAllToSimple()
+        {
             string[] temp = allWords_lstbx.SelectedItem.ToString().Split(' ');
             badWords_lstBx.Items.Add(temp[0]);
             w.AddBadWord(temp[0]);
+            w.WordsWithOUTBad.Remove(temp[0]);
+            RefreshAllWordsLSTBX();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -74,6 +81,12 @@ namespace Dizruptor
 
         private void ToTarget_btn_Click(object sender, EventArgs e)
         {
+            FromAllToTrget();
+
+        }
+
+        private void FromAllToTrget()
+        {
             string s = allWords_lstbx.SelectedItem.ToString();
             string[] v = s.Split(' ');
             if (TargetWords_lstBx.SelectedItem == null)
@@ -96,7 +109,6 @@ namespace Dizruptor
 
             w.WordsWithOUTBad.Remove(v[0]);
             RefreshAllWordsLSTBX();
-
         }
 
         private void RefreshAllWordsLSTBX()
@@ -344,6 +356,37 @@ namespace Dizruptor
             foreach (var item in v)
             {
                 allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
+            }
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 't' || e.KeyChar == 'T' || e.KeyChar == 'н' || e.KeyChar == 'Н')
+            {
+                FromAllToTrget();
+            }
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            var k = Keys.Z | Keys.Control;
+            if (e.KeyCode == k)
+            {
+                FromAllToTrget();
+            }
+        }
+
+        private void allWords_lstbx_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.T && e.Control)
+            {
+                FromAllToTrget();
+                e.Handled = true;
+            }
+            else if (e.KeyCode == Keys.S && e.Control)
+            {
+                FromAllToSimple();
+                e.Handled = true;
             }
         }
     }
