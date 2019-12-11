@@ -35,15 +35,17 @@ namespace Dizruptor
         private void start_btn_Click(object sender, EventArgs e)
         {
             allWords_lstbx.Items.Clear();
+            
 
             w.GetAllWordsFromPDF(pathToBook_txtBx.Text);
 
             w.GetWordsFreq();
-
+            tempList = w.WordsWithOUTBad;
             foreach (var item in w.WordsWithOUTBad)
             {
                 allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
             }
+            allWords_grpBx.Enabled = true;
         }
 
         private void ToBadWords_btn_Click(object sender, EventArgs e)
@@ -114,8 +116,13 @@ namespace Dizruptor
 
         private void RefreshAllWordsLSTBX()
         {
+            SortAllWordListByName();
+        }
+
+        private void SortAllWordListByName()
+        {
             allWords_lstbx.Items.Clear();
-            tempList = w.WordsWithOUTBad.OrderBy(t => t.Key);
+            tempList = tempList.OrderBy(t => t.Key);
             foreach (var item in tempList)
             {
                 allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
@@ -338,8 +345,12 @@ namespace Dizruptor
 
         private void allWordsSortByCount_rdBtn_Click(object sender, EventArgs e)
         {
-            
-            tempList = w.WordsWithOUTBad.OrderBy(t => t.Value);
+            SortAllWordsListByCount();
+        }
+
+        private void SortAllWordsListByCount()
+        {
+            tempList = tempList.OrderBy(t => t.Value);
             allWords_lstbx.Items.Clear();
             foreach (var item in tempList)
             {
@@ -354,7 +365,12 @@ namespace Dizruptor
 
         private void allWordsSortByLength_rdBtn_Click(object sender, EventArgs e)
         {
-            tempList = w.WordsWithOUTBad.OrderBy(t => t.Key.Length);
+            SortAllWordsListByLenthg();
+        }
+
+        private void SortAllWordsListByLenthg()
+        {
+            tempList = tempList.OrderBy(t => t.Key.Length);
             allWords_lstbx.Items.Clear();
             foreach (var item in tempList)
             {
@@ -408,12 +424,21 @@ namespace Dizruptor
             else
             {
                 allWords_lstbx.Items.Clear();
-                tempList = tempList.Select(t=>t);
-
-                foreach (var item in tempList)
+                tempList = w.WordsWithOUTBad;
+                if(allWordsSortByCount_rdBtn.Checked)
                 {
-                    allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
+                    SortAllWordsListByCount();
                 }
+                else if (allWordsSortByLength_rdBtn.Checked)
+                {
+                    SortAllWordsListByLenthg();
+                }
+                else
+                {
+                    SortAllWordListByName();
+                }
+
+               
             }
         }
     }
