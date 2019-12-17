@@ -423,22 +423,43 @@ namespace Dizruptor
             }
             else
             {
-                allWords_lstbx.Items.Clear();
-                tempList = w.WordsWithOUTBad;
-                if(allWordsSortByCount_rdBtn.Checked)
-                {
-                    SortAllWordsListByCount();
-                }
-                else if (allWordsSortByLength_rdBtn.Checked)
-                {
-                    SortAllWordsListByLenthg();
-                }
-                else
-                {
-                    SortAllWordListByName();
-                }
+                FeelAllWordsWithSort();
 
-               
+            }
+        }
+
+        private void FeelAllWordsWithSort()
+        {
+            allWords_lstbx.Items.Clear();
+            tempList = w.WordsWithOUTBad;
+            if (allWordsSortByCount_rdBtn.Checked)
+            {
+                SortAllWordsListByCount();
+            }
+            else if (allWordsSortByLength_rdBtn.Checked)
+            {
+                SortAllWordsListByLenthg();
+            }
+            else
+            {
+                SortAllWordListByName();
+            }
+        }
+
+        private void findWord_txtBx_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(findWord_txtBx.Text))
+            {
+                FeelAllWordsWithSort();
+            }
+            else
+            {
+                tempList = tempList.Where(t => t.Key.StartsWith(findWord_txtBx.Text));
+                allWords_lstbx.Items.Clear();
+                foreach (var item in tempList)
+                {
+                    allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
+                }
             }
         }
     }

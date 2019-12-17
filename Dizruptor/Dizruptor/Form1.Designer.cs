@@ -56,6 +56,7 @@
             this.allWordsSortByName_rdBtn = new System.Windows.Forms.RadioButton();
             this.pageSatart_nmUD = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
+            this.findWord_txtBx = new System.Windows.Forms.TextBox();
             this.allWords_grpBx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pageSatart_nmUD)).BeginInit();
             this.SuspendLayout();
@@ -65,13 +66,13 @@
             this.allWords_lstbx.FormattingEnabled = true;
             this.allWords_lstbx.Location = new System.Drawing.Point(12, 119);
             this.allWords_lstbx.Name = "allWords_lstbx";
-            this.allWords_lstbx.Size = new System.Drawing.Size(248, 355);
+            this.allWords_lstbx.Size = new System.Drawing.Size(248, 329);
             this.allWords_lstbx.TabIndex = 0;
             this.allWords_lstbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.allWords_lstbx_KeyDown);
             // 
             // start_btn
             // 
-            this.start_btn.Location = new System.Drawing.Point(12, 479);
+            this.start_btn.Location = new System.Drawing.Point(12, 519);
             this.start_btn.Name = "start_btn";
             this.start_btn.Size = new System.Drawing.Size(75, 23);
             this.start_btn.TabIndex = 1;
@@ -260,7 +261,7 @@
             // 
             this.withOutCuntOne_chkBx.AutoSize = true;
             this.withOutCuntOne_chkBx.Location = new System.Drawing.Point(6, 51);
-            this.withOutCuntOne_chkBx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.withOutCuntOne_chkBx.Margin = new System.Windows.Forms.Padding(2);
             this.withOutCuntOne_chkBx.Name = "withOutCuntOne_chkBx";
             this.withOutCuntOne_chkBx.Size = new System.Drawing.Size(114, 17);
             this.withOutCuntOne_chkBx.TabIndex = 3;
@@ -321,11 +322,20 @@
             this.label1.TabIndex = 25;
             this.label1.Text = "Start with";
             // 
+            // findWord_txtBx
+            // 
+            this.findWord_txtBx.Location = new System.Drawing.Point(12, 454);
+            this.findWord_txtBx.Name = "findWord_txtBx";
+            this.findWord_txtBx.Size = new System.Drawing.Size(248, 20);
+            this.findWord_txtBx.TabIndex = 26;
+            this.findWord_txtBx.TextChanged += new System.EventHandler(this.findWord_txtBx_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(926, 510);
+            this.ClientSize = new System.Drawing.Size(926, 554);
+            this.Controls.Add(this.findWord_txtBx);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pageSatart_nmUD);
             this.Controls.Add(this.allWords_grpBx);
@@ -390,6 +400,7 @@
         private System.Windows.Forms.NumericUpDown pageSatart_nmUD;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox withOutCuntOne_chkBx;
+        private System.Windows.Forms.TextBox findWord_txtBx;
     }
 }
 
