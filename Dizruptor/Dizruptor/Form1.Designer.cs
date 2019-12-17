@@ -72,9 +72,9 @@
             // 
             // start_btn
             // 
-            this.start_btn.Location = new System.Drawing.Point(12, 519);
+            this.start_btn.Location = new System.Drawing.Point(12, 480);
             this.start_btn.Name = "start_btn";
-            this.start_btn.Size = new System.Drawing.Size(75, 23);
+            this.start_btn.Size = new System.Drawing.Size(248, 40);
             this.start_btn.TabIndex = 1;
             this.start_btn.Text = "Scan file";
             this.start_btn.UseVisualStyleBackColor = true;
@@ -94,9 +94,9 @@
             // badWords_lstBx
             // 
             this.badWords_lstBx.FormattingEnabled = true;
-            this.badWords_lstBx.Location = new System.Drawing.Point(371, 70);
+            this.badWords_lstBx.Location = new System.Drawing.Point(356, 119);
             this.badWords_lstBx.Name = "badWords_lstBx";
-            this.badWords_lstBx.Size = new System.Drawing.Size(163, 368);
+            this.badWords_lstBx.Size = new System.Drawing.Size(163, 355);
             this.badWords_lstBx.TabIndex = 3;
             // 
             // book_fd
@@ -105,7 +105,7 @@
             // 
             // findFile_btn
             // 
-            this.findFile_btn.Location = new System.Drawing.Point(310, 19);
+            this.findFile_btn.Location = new System.Drawing.Point(235, 20);
             this.findFile_btn.Name = "findFile_btn";
             this.findFile_btn.Size = new System.Drawing.Size(25, 20);
             this.findFile_btn.TabIndex = 5;
@@ -117,13 +117,13 @@
             // 
             this.pathToBook_txtBx.Location = new System.Drawing.Point(12, 19);
             this.pathToBook_txtBx.Name = "pathToBook_txtBx";
-            this.pathToBook_txtBx.Size = new System.Drawing.Size(292, 20);
+            this.pathToBook_txtBx.Size = new System.Drawing.Size(217, 20);
             this.pathToBook_txtBx.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(374, 51);
+            this.label2.Location = new System.Drawing.Point(353, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 11;
@@ -132,10 +132,10 @@
             // TargetWords_lstBx
             // 
             this.TargetWords_lstBx.FormattingEnabled = true;
-            this.TargetWords_lstBx.Location = new System.Drawing.Point(562, 70);
+            this.TargetWords_lstBx.Location = new System.Drawing.Point(546, 119);
             this.TargetWords_lstBx.Name = "TargetWords_lstBx";
             this.TargetWords_lstBx.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.TargetWords_lstBx.Size = new System.Drawing.Size(172, 368);
+            this.TargetWords_lstBx.Size = new System.Drawing.Size(172, 355);
             this.TargetWords_lstBx.TabIndex = 12;
             this.TargetWords_lstBx.SelectedIndexChanged += new System.EventHandler(this.TargetWords_lstBx_SelectedIndexChanged);
             // 
@@ -152,7 +152,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(562, 51);
+            this.label3.Location = new System.Drawing.Point(546, 100);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 14;
@@ -165,7 +165,7 @@
             // combineWords_btn
             // 
             this.combineWords_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.combineWords_btn.Location = new System.Drawing.Point(740, 293);
+            this.combineWords_btn.Location = new System.Drawing.Point(724, 342);
             this.combineWords_btn.Name = "combineWords_btn";
             this.combineWords_btn.Size = new System.Drawing.Size(36, 29);
             this.combineWords_btn.TabIndex = 15;
@@ -176,7 +176,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(371, 453);
+            this.button2.Location = new System.Drawing.Point(356, 480);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(163, 36);
             this.button2.TabIndex = 16;
@@ -187,14 +187,14 @@
             // innerWords_lstbx
             // 
             this.innerWords_lstbx.FormattingEnabled = true;
-            this.innerWords_lstbx.Location = new System.Drawing.Point(740, 70);
+            this.innerWords_lstbx.Location = new System.Drawing.Point(724, 119);
             this.innerWords_lstbx.Name = "innerWords_lstbx";
             this.innerWords_lstbx.Size = new System.Drawing.Size(120, 134);
             this.innerWords_lstbx.TabIndex = 17;
             // 
             // removeWord_btn
             // 
-            this.removeWord_btn.Location = new System.Drawing.Point(774, 210);
+            this.removeWord_btn.Location = new System.Drawing.Point(758, 259);
             this.removeWord_btn.Name = "removeWord_btn";
             this.removeWord_btn.Size = new System.Drawing.Size(86, 23);
             this.removeWord_btn.TabIndex = 18;
@@ -204,14 +204,14 @@
             // 
             // targetListLoad_txtBx
             // 
-            this.targetListLoad_txtBx.Location = new System.Drawing.Point(562, 19);
+            this.targetListLoad_txtBx.Location = new System.Drawing.Point(546, 20);
             this.targetListLoad_txtBx.Name = "targetListLoad_txtBx";
             this.targetListLoad_txtBx.Size = new System.Drawing.Size(239, 20);
             this.targetListLoad_txtBx.TabIndex = 19;
             // 
             // targetLoad_btn
             // 
-            this.targetLoad_btn.Location = new System.Drawing.Point(798, 18);
+            this.targetLoad_btn.Location = new System.Drawing.Point(782, 19);
             this.targetLoad_btn.Name = "targetLoad_btn";
             this.targetLoad_btn.Size = new System.Drawing.Size(27, 23);
             this.targetLoad_btn.TabIndex = 20;
@@ -225,7 +225,7 @@
             // 
             // targetLoadWords_btn
             // 
-            this.targetLoadWords_btn.Location = new System.Drawing.Point(831, 19);
+            this.targetLoadWords_btn.Location = new System.Drawing.Point(815, 20);
             this.targetLoadWords_btn.Name = "targetLoadWords_btn";
             this.targetLoadWords_btn.Size = new System.Drawing.Size(75, 23);
             this.targetLoadWords_btn.TabIndex = 21;
@@ -235,9 +235,9 @@
             // 
             // saveTargetToXML
             // 
-            this.saveTargetToXML.Location = new System.Drawing.Point(655, 444);
+            this.saveTargetToXML.Location = new System.Drawing.Point(546, 480);
             this.saveTargetToXML.Name = "saveTargetToXML";
-            this.saveTargetToXML.Size = new System.Drawing.Size(79, 23);
+            this.saveTargetToXML.Size = new System.Drawing.Size(172, 36);
             this.saveTargetToXML.TabIndex = 22;
             this.saveTargetToXML.Text = "Save to XML";
             this.saveTargetToXML.UseVisualStyleBackColor = true;
@@ -308,7 +308,7 @@
             // 
             // pageSatart_nmUD
             // 
-            this.pageSatart_nmUD.Location = new System.Drawing.Point(744, 393);
+            this.pageSatart_nmUD.Location = new System.Drawing.Point(728, 442);
             this.pageSatart_nmUD.Name = "pageSatart_nmUD";
             this.pageSatart_nmUD.Size = new System.Drawing.Size(45, 20);
             this.pageSatart_nmUD.TabIndex = 24;
@@ -316,7 +316,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(740, 377);
+            this.label1.Location = new System.Drawing.Point(724, 426);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 25;
