@@ -57,6 +57,7 @@
             this.pageSatart_nmUD = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.findWord_txtBx = new System.Windows.Forms.TextBox();
+            this.clearAllWords_btn = new System.Windows.Forms.Button();
             this.allWords_grpBx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pageSatart_nmUD)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +75,7 @@
             // 
             this.start_btn.Location = new System.Drawing.Point(12, 480);
             this.start_btn.Name = "start_btn";
-            this.start_btn.Size = new System.Drawing.Size(248, 40);
+            this.start_btn.Size = new System.Drawing.Size(120, 40);
             this.start_btn.TabIndex = 1;
             this.start_btn.Text = "Scan file";
             this.start_btn.UseVisualStyleBackColor = true;
@@ -330,11 +331,22 @@
             this.findWord_txtBx.TabIndex = 26;
             this.findWord_txtBx.TextChanged += new System.EventHandler(this.findWord_txtBx_TextChanged);
             // 
+            // clearAllWords_btn
+            // 
+            this.clearAllWords_btn.Location = new System.Drawing.Point(135, 480);
+            this.clearAllWords_btn.Name = "clearAllWords_btn";
+            this.clearAllWords_btn.Size = new System.Drawing.Size(125, 40);
+            this.clearAllWords_btn.TabIndex = 27;
+            this.clearAllWords_btn.Text = "Clear all words";
+            this.clearAllWords_btn.UseVisualStyleBackColor = true;
+            this.clearAllWords_btn.Click += new System.EventHandler(this.clearAllWords_btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 554);
+            this.Controls.Add(this.clearAllWords_btn);
             this.Controls.Add(this.findWord_txtBx);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pageSatart_nmUD);
@@ -401,6 +413,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox withOutCuntOne_chkBx;
         private System.Windows.Forms.TextBox findWord_txtBx;
+        private System.Windows.Forms.Button clearAllWords_btn;
     }
 }
 

@@ -14,6 +14,7 @@ namespace Dizruptor
 {
     public partial class Form1 : Form
     {
+        public delegate void InvokeDelegate();
         Words w = Words.GetInstance();
         WorkWithPDF PDF = new WorkWithPDF();
         List<string> targetWordsChose = new List<string>();
@@ -32,20 +33,31 @@ namespace Dizruptor
             }
         }
 
-        private void start_btn_Click(object sender, EventArgs e)
+        private async void start_btn_Click(object sender, EventArgs e)
         {
             allWords_lstbx.Items.Clear();
-            
 
+            await Task.Run(()=>GetWordsFromPDF());
+           allWords_lstbx.Invoke(new InvokeDelegate(FeelAllWordLstBx));
+        }
+
+        private void FeelAllWordLstBx()
+        {
+            
+            foreach (var item in w.WordsWithOUTBad)
+            {
+                allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
+                
+            }
+            allWords_grpBx.Enabled = true;
+        }
+
+        private void GetWordsFromPDF()
+        {
             w.GetAllWordsFromPDF(pathToBook_txtBx.Text);
 
             w.GetWordsFreq();
             tempList = w.WordsWithOUTBad;
-            foreach (var item in w.WordsWithOUTBad)
-            {
-                allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
-            }
-            allWords_grpBx.Enabled = true;
         }
 
         private void ToBadWords_btn_Click(object sender, EventArgs e)
@@ -461,6 +473,13 @@ namespace Dizruptor
                     allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
                 }
             }
+        }
+
+        private void clearAllWords_btn_Click(object sender, EventArgs e)
+        {
+            allWords_grpBx.Enabled = false;
+            w.WordsWithOUTBad.Clear();
+            allWords_lstbx.Items.Clear();
         }
     }
 }
