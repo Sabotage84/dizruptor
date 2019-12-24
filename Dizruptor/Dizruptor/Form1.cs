@@ -67,11 +67,14 @@ namespace Dizruptor
 
         private void FromAllToSimple()
         {
-            string[] temp = allWords_lstbx.SelectedItem.ToString().Split(' ');
-            badWords_lstBx.Items.Add(temp[0]);
-            w.AddBadWord(temp[0]);
-            w.WordsWithOUTBad.Remove(temp[0]);
-            RefreshAllWordsLSTBX();
+            if (allWords_lstbx.SelectedItem != null)
+            {
+                string[] temp = allWords_lstbx.SelectedItem.ToString().Split(' ');
+                badWords_lstBx.Items.Add(temp[0]);
+                w.AddBadWord(temp[0]);
+                w.WordsWithOUTBad.Remove(temp[0]);
+                RefreshAllWordsLSTBX();
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -102,29 +105,32 @@ namespace Dizruptor
 
         private void FromAllToTrget()
         {
-            string s = allWords_lstbx.SelectedItem.ToString();
-            string[] v = s.Split(' ');
-            if (TargetWords_lstBx.SelectedItem == null)
+            if (allWords_lstbx.SelectedItem != null)
             {
-                
-                if (!w.targetList.ContainsKey(v[0]))
+                string s = allWords_lstbx.SelectedItem.ToString();
+                string[] v = s.Split(' ');
+                if (TargetWords_lstBx.SelectedItem == null)
                 {
-                    TargetWords_lstBx.Items.Add(v[0]);
-                    w.targetList.Add(v[0], new List<string>());
-                    w.targetList[v[0]].Add(v[0]);
+
+                    if (!w.targetList.ContainsKey(v[0]))
+                    {
+                        TargetWords_lstBx.Items.Add(v[0]);
+                        w.targetList.Add(v[0], new List<string>());
+                        w.targetList[v[0]].Add(v[0]);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Словарь уже содержит данное значение!");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Словарь уже содержит данное значение!");
+                    w.targetList[TargetWords_lstBx.SelectedItem.ToString()].Add(v[0]);
                 }
-            }
-            else
-            {
-                w.targetList[TargetWords_lstBx.SelectedItem.ToString()].Add(v[0]);
-            }
 
-            w.WordsWithOUTBad.Remove(v[0]);
-            RefreshAllWordsLSTBX();
+                w.WordsWithOUTBad.Remove(v[0]);
+                RefreshAllWordsLSTBX();
+            }
         }
 
         private void RefreshAllWordsLSTBX()
