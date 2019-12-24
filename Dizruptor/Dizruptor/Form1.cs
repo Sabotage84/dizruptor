@@ -106,9 +106,10 @@ namespace Dizruptor
             string[] v = s.Split(' ');
             if (TargetWords_lstBx.SelectedItem == null)
             {
-                TargetWords_lstBx.Items.Add(v[0]);
+                
                 if (!w.targetList.ContainsKey(v[0]))
                 {
+                    TargetWords_lstBx.Items.Add(v[0]);
                     w.targetList.Add(v[0], new List<string>());
                     w.targetList[v[0]].Add(v[0]);
                 }
@@ -480,6 +481,12 @@ namespace Dizruptor
             allWords_grpBx.Enabled = false;
             w.WordsWithOUTBad.Clear();
             allWords_lstbx.Items.Clear();
+        }
+
+        private void clearTargetWord_btn_Click(object sender, EventArgs e)
+        {
+            TargetWords_lstBx.Items.Clear();
+            w.targetList.Clear();
         }
     }
 }

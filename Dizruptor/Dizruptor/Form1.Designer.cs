@@ -58,6 +58,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.findWord_txtBx = new System.Windows.Forms.TextBox();
             this.clearAllWords_btn = new System.Windows.Forms.Button();
+            this.clearTargetWord_btn = new System.Windows.Forms.Button();
             this.allWords_grpBx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pageSatart_nmUD)).BeginInit();
             this.SuspendLayout();
@@ -238,7 +239,7 @@
             // 
             this.saveTargetToXML.Location = new System.Drawing.Point(546, 480);
             this.saveTargetToXML.Name = "saveTargetToXML";
-            this.saveTargetToXML.Size = new System.Drawing.Size(172, 36);
+            this.saveTargetToXML.Size = new System.Drawing.Size(80, 36);
             this.saveTargetToXML.TabIndex = 22;
             this.saveTargetToXML.Text = "Save to XML";
             this.saveTargetToXML.UseVisualStyleBackColor = true;
@@ -341,11 +342,22 @@
             this.clearAllWords_btn.UseVisualStyleBackColor = true;
             this.clearAllWords_btn.Click += new System.EventHandler(this.clearAllWords_btn_Click);
             // 
+            // clearTargetWord_btn
+            // 
+            this.clearTargetWord_btn.Location = new System.Drawing.Point(632, 480);
+            this.clearTargetWord_btn.Name = "clearTargetWord_btn";
+            this.clearTargetWord_btn.Size = new System.Drawing.Size(86, 36);
+            this.clearTargetWord_btn.TabIndex = 28;
+            this.clearTargetWord_btn.Text = "Clear Target Words";
+            this.clearTargetWord_btn.UseVisualStyleBackColor = true;
+            this.clearTargetWord_btn.Click += new System.EventHandler(this.clearTargetWord_btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 554);
+            this.Controls.Add(this.clearTargetWord_btn);
             this.Controls.Add(this.clearAllWords_btn);
             this.Controls.Add(this.findWord_txtBx);
             this.Controls.Add(this.label1);
@@ -414,6 +426,7 @@
         private System.Windows.Forms.CheckBox withOutCuntOne_chkBx;
         private System.Windows.Forms.TextBox findWord_txtBx;
         private System.Windows.Forms.Button clearAllWords_btn;
+        private System.Windows.Forms.Button clearTargetWord_btn;
     }
 }
 
