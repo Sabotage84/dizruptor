@@ -47,7 +47,6 @@ namespace Dizruptor
             foreach (var item in w.WordsWithOUTBad)
             {
                 allWords_lstbx.Items.Add(item.Key + " ------>>> " + item.Value);
-                
             }
             allWords_grpBx.Enabled = true;
         }
@@ -493,6 +492,16 @@ namespace Dizruptor
         {
             TargetWords_lstBx.Items.Clear();
             w.targetList.Clear();
+        }
+
+        private void fromSimpleToAll_btn_Click(object sender, EventArgs e)
+        {
+            if (badWords_lstBx.SelectedItem!=null)
+            {
+                allWords_lstbx.Items.Add(badWords_lstBx.SelectedItem.ToString() + " ------>>> " + w.allWordsDic[badWords_lstBx.SelectedItem.ToString()].Count);
+                w.WordsWithOUTBad.Add(badWords_lstBx.SelectedItem.ToString(), w.allWordsDic[badWords_lstBx.SelectedItem.ToString()].Count);
+                badWords_lstBx.Items.Remove(badWords_lstBx.SelectedItem);
+            }
         }
     }
 }
